@@ -1,4 +1,5 @@
 // @flow
+
 import React, {Component} from "react";
 
 import {AppRegistry, StatusBar, Text, View} from "react-native";
