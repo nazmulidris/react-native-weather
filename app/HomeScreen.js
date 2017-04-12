@@ -1,7 +1,8 @@
 // @flow
 
 import React, {Component} from "react";
-import {Button, StatusBar, Text, ToastAndroid, View} from "react-native";
+import {StatusBar, Text, ToastAndroid, View} from "react-native";
+import {Button} from "react-native-elements";
 import * as css from "./Styles";
 
 export class HomeScreen extends Component {
@@ -32,14 +33,30 @@ export class HomeScreen extends Component {
   
         <View style={css.global.h_container}>
           <Button
-            color={css.colors.button_bg_color}
             onPress={() => navigate(`DetailsScreen`, {param1: msg2})}
-            title="Detail Screen"
+            backgroundColor={css.colors.button_bg_color}
+            color={css.colors.button_fg_color}
+            title='Detail Screen'
+            fontFamily={css.values.body_font}
+            fontsize={css.values.body_font_size}
+            icon={{
+              name: 'android',
+              color: css.colors.button_fg_color
+            }}
+            borderRadius={css.values.border_radius}
           />
           <Button
-            color={css.colors.button_bg_color}
-            onPress={() => ToastAndroid.show("Info button pressed", 10000)}
-            title="Info"
+            onPress={() => ToastAndroid.show('Info button pressed', 10000)}
+            backgroundColor={css.colors.button_bg_color}
+            color={css.colors.button_fg_color}
+            title='Info'
+            fontFamily={css.values.body_font}
+            icon={{
+              name: 'bug-report',
+              color: css.colors.button_fg_color
+            }}
+            fontsize={css.values.body_font_size}
+            borderRadius={css.values.border_radius}
           />
         </View>
       </View>

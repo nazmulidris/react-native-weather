@@ -3,6 +3,19 @@
 import React from "react";
 import {StyleSheet} from "react-native";
 
+export const colors = {
+  'statusbar_bg_color': '#455a64',
+  'button_bg_color': '#0693e3',
+  'button_fg_color': '#d9e3f0',
+};
+
+export const values = {
+  'title_font': 'NotoSans-Bold',
+  'body_font': 'NotoSans-Regular',
+  'body_font_size': 14,
+  'border_radius': 2,
+};
+
 export const global = StyleSheet.create(
   {
     v_container: {
@@ -21,7 +34,7 @@ export const global = StyleSheet.create(
       marginBottom: 4,
       fontSize: 20,
       color: '#263238',
-      fontFamily: 'NotoSans-Bold', // more info https://goo.gl/7wYazn
+      fontFamily: values.title_font, // more info https://goo.gl/7wYazn
     },
     body1: {
       flex: -1,
@@ -29,8 +42,8 @@ export const global = StyleSheet.create(
       marginLeft: 8,
       marginRight: 8,
       marginBottom: 8,
-      fontFamily: 'NotoSans-Regular', // more info https://goo.gl/7wYazn
-      fontSize: 14,
+      fontFamily: values.body_font, // more info https://goo.gl/7wYazn
+      fontSize: values.body_font_size,
       color: '#455a64',
     },
     h_container: {
@@ -50,7 +63,3 @@ export const global = StyleSheet.create(
     },
   });
 
-export const colors = {
-  "statusbar_bg_color": "#455a64",
-  "button_bg_color": "#607d8b"
-};
