@@ -6,6 +6,11 @@ import {StackNavigator, TabNavigator} from "react-navigation";
 import {HomeScreen} from "./HomeScreen";
 import {DetailsScreen1} from "./DetailsScreen1";
 import {DetailsScreen2} from "./DetailsScreen2";
+import * as css from "./Styles";
+
+//
+// tabs
+//
 
 const nav_tab = TabNavigator(
   {
@@ -14,9 +19,22 @@ const nav_tab = TabNavigator(
   }
 );
 
+// more info https://goo.gl/dqw4jF
 nav_tab.navigationOptions = {
   title: 'Details',
+  header: {
+    // text
+    titleStyle: css.global.nav_header_text_style,
+    // background
+    style: css.global.nav_header_bg_style,
+    // arrows
+    tintColor: css.colors.text_light,
+  }
 };
+
+//
+// stack
+//
 
 const nav_stack = StackNavigator(
   {
