@@ -3,7 +3,7 @@
 import React from "react";
 import {StyleSheet} from "react-native";
 
-const homescreen = StyleSheet.create(
+export const homescreen = StyleSheet.create(
   {
     v_container: {
       flex: 1,
@@ -42,5 +42,3 @@ const homescreen = StyleSheet.create(
       resizeMode: 'contain', //'cover' | 'contain'
     },
   });
-
-export {homescreen}
