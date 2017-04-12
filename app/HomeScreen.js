@@ -33,7 +33,7 @@ export class HomeScreen extends Component {
   
         <View style={css.global.h_container}>
           <Button
-            onPress={() => navigate(`DetailsScreen`, {param1: msg2})}
+            onPress={() => navigate('DetailsRoute', {param1: msg2})}
             backgroundColor={css.colors.button_bg_color}
             color={css.colors.button_fg_color}
             title='Detail Screen'

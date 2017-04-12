@@ -4,15 +4,15 @@ import React, {Component} from "react";
 import {Text, View} from "react-native";
 import * as css from "./Styles";
 
-export class DetailsScreen extends Component {
+export class DetailsScreen2 extends Component {
   
   static navigationOptions = {
-    title: `Weather Details Screen`
+    title: `Details Screen 2`
   };
   
   render() {
-    const msg1 = `Details`;
-  
+    const msg1 = `Details 2`;
+    
     const {params} = this.props.navigation.state;
     
     return (

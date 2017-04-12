@@ -2,14 +2,26 @@
 
 import React from "react";
 import {AppRegistry} from "react-native";
-import {StackNavigator} from "react-navigation";
+import {StackNavigator, TabNavigator} from "react-navigation";
 import {HomeScreen} from "./HomeScreen";
-import {DetailsScreen} from "./DetailsScreen";
+import {DetailsScreen1} from "./DetailsScreen1";
+import {DetailsScreen2} from "./DetailsScreen2";
 
-const navigator = StackNavigator(
+const nav_tab = TabNavigator(
   {
-    HomeScreen: {screen: HomeScreen},
-    DetailsScreen: {screen: DetailsScreen},
+    DetailsScreen1: {screen: DetailsScreen1},
+    DetailsScreen2: {screen: DetailsScreen2},
+  }
+);
+
+nav_tab.navigationOptions = {
+  title: 'Details',
+};
+
+const nav_stack = StackNavigator(
+  {
+    HomeRoute: {screen: HomeScreen}, // this is displayed first
+    DetailsRoute: {screen: nav_tab},
   });
 
-AppRegistry.registerComponent('WeatherApp', () => navigator);
+AppRegistry.registerComponent('WeatherApp', () => nav_stack);
