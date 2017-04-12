@@ -1,3 +1,3 @@
 // @flow
 
-import "./app/HomeScreen";
+import "./app/Router";
