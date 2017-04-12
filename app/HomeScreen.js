@@ -11,8 +11,10 @@ export class HomeScreen extends Component {
   };
   
   render() {
-    const msg1 = `Home screen`;
+    const msg1 = `Home`;
     const msg2 = `More coming soon!`;
+  
+    const {navigate} = this.props.navigation;
     
     return (
       <View style={css.global.v_container}>
@@ -23,15 +25,15 @@ export class HomeScreen extends Component {
           barStyle={'light-content'}
           backgroundColor={css.colors.statusbar_bg_color}
         />
-    
+  
         <Text style={css.global.heading}>{msg1}</Text>
-    
+  
         <Text style={css.global.body}>{msg2}</Text>
-    
+  
         <View style={css.global.h_container}>
           <Button
             color={css.colors.button_bg_color}
-            onPress={() => this.props.navigation.navigate(`DetailsScreen`)}
+            onPress={() => navigate(`DetailsScreen`, {param1: msg2})}
             title="Detail Screen"
           />
           <Button

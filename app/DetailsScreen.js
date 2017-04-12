@@ -11,13 +11,14 @@ export class DetailsScreen extends Component {
   };
   
   render() {
-    const msg1 = `Weather Details Screen`;
-    const msg2 = `This is where weather details go`;
+    const msg1 = `Details`;
+  
+    const {params} = this.props.navigation.state;
     
     return (
       <View style={css.global.v_container}>
         <Text style={css.global.heading}>{msg1}</Text>
-        <Text style={css.global.body}>{msg2}</Text>
+        <Text style={css.global.body}>{params.param1}</Text>
       </View>
     );
   }
