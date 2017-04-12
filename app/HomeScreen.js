@@ -1,50 +1,47 @@
 // @flow
 
 import React, {Component} from "react";
-
-import {AppRegistry, StatusBar, Text, View} from "react-native";
-
+import {Button, StatusBar, Text, ToastAndroid, View} from "react-native";
 import * as css from "./Styles";
 
-import {StackNavigator} from "react-navigation";
-
-// export class MainScreen extends Component {
-//   render() {
-//     const msg1 = `Weather App`;
-//     const msg2 = `More coming soon!`;
-//
-//     return (
-//       <View style={css.homescreen.v_container}>
-//         <StatusBar hidden={true} translucent={true} animated={true}
-//                    barStyle={'light-content'} backgroundColor={'#455a64'}/>
-//         <Text style={css.homescreen.heading}>{msg1}</Text>
-//         <Text style={css.homescreen.body}>{msg2}</Text>
-//       </View>
-//     );
-//   }
-// }
-//
-// AppRegistry.registerComponent('WeatherApp', () => MainScreen);
-
-class HomeScreen extends Component {
+export class HomeScreen extends Component {
+  
   static navigationOptions = {
     title: 'Weather App',
   };
   
   render() {
-    const msg1 = `More coming soon!`;
+    const msg1 = `Home screen`;
+    const msg2 = `More coming soon!`;
     
     return (
-      <View style={css.homescreen.v_container}>
-        <Text style={css.homescreen.heading}>{msg1}</Text>
+      <View style={css.global.v_container}>
+        <StatusBar
+          hidden={false}
+          translucent={false}
+          animated={true}
+          barStyle={'light-content'}
+          backgroundColor={css.colors.statusbar_bg_color}
+        />
+    
+        <Text style={css.global.heading}>{msg1}</Text>
+    
+        <Text style={css.global.body}>{msg2}</Text>
+    
+        <View style={css.global.h_container}>
+          <Button
+            color={css.colors.button_bg_color}
+            onPress={() => this.props.navigation.navigate(`DetailsScreen`)}
+            title="Detail Screen"
+          />
+          <Button
+            color={css.colors.button_bg_color}
+            onPress={() => ToastAndroid.show("Info button pressed", 10000)}
+            title="Info"
+          />
+        </View>
       </View>
     );
   }
+  
 }
-
-const SimpleApp = StackNavigator(
-  {
-    Home: {screen: HomeScreen},
-  });
-
-AppRegistry.registerComponent('WeatherApp', () => SimpleApp);
