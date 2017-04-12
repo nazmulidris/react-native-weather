@@ -13,7 +13,7 @@ class WeatherApp extends Component {
     
     return (
       <View style={css.homescreen.v_container}>
-        <StatusBar hidden={false} translucent={true} animated={true}
+        <StatusBar hidden={true} translucent={true} animated={true}
                    barStyle={'light-content'} backgroundColor={'#455a64'}/>
         <Text style={css.homescreen.heading}>{msg1}</Text>
         <Text style={css.homescreen.body}>{msg2}</Text>
