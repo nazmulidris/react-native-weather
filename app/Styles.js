@@ -30,7 +30,7 @@ export const global = StyleSheet.create(
       marginRight: 8,
       marginBottom: 8,
       fontFamily: 'NotoSans-Regular', // more info https://goo.gl/7wYazn
-      fontSize: 12,
+      fontSize: 14,
       color: '#455a64',
     },
     h_container: {
