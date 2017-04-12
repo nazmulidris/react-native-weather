@@ -26,9 +26,9 @@ export class HomeScreen extends Component {
           backgroundColor={css.colors.statusbar_bg_color}
         />
   
-        <Text style={css.global.heading}>{msg1}</Text>
+        <Text style={css.global.title}>{msg1}</Text>
   
-        <Text style={css.global.body}>{msg2}</Text>
+        <Text style={css.global.body1}>{msg2}</Text>
   
         <View style={css.global.h_container}>
           <Button

@@ -13,7 +13,7 @@ export const global = StyleSheet.create(
       alignItems: 'center', // cross axis
       backgroundColor: '#d9d9d9',
     },
-    heading: {
+    title: {
       flex: -1, // shrink to min height & width if needed
       marginTop: 8,
       marginLeft: 8,
@@ -23,7 +23,7 @@ export const global = StyleSheet.create(
       color: '#263238',
       fontFamily: 'NotoSans-Bold', // more info https://goo.gl/7wYazn
     },
-    body: {
+    body1: {
       flex: -1,
       marginTop: 4,
       marginLeft: 8,

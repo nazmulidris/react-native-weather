@@ -17,8 +17,8 @@ export class DetailsScreen extends Component {
     
     return (
       <View style={css.global.v_container}>
-        <Text style={css.global.heading}>{msg1}</Text>
-        <Text style={css.global.body}>{params.param1}</Text>
+        <Text style={css.global.title}>{msg1}</Text>
+        <Text style={css.global.body1}>{params.param1}</Text>
       </View>
     );
   }
