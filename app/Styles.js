@@ -21,33 +21,6 @@ export const values = {
   'border_radius': 2,
 };
 
-
-// more info https://goo.gl/dqw4jF
-export const navbar = {
-  // text
-  titleStyle: global.nav_header_text_style,
-  // background
-  style: global.nav_header_bg_style,
-  // arrows
-  tintColor: colors.text_light,
-};
-
-// more info https://goo.gl/eawcVg
-export const tabbar = {
-  // text
-  labelStyle: {
-    fontFamily: values.font_body,
-    fontSize: values.font_body_size,
-  },
-  activeTintColor: colors.text_dark, // text color active tab
-  inactiveTintColor: colors.text_medium, // text color inactive tab
-  indicatorStyle: {backgroundColor: colors.button_bg}, // active tab highlight top
-  style: {
-    backgroundColor: colors.background_medium, // background color of tabs
-    borderTopColor: colors.background_light // active tab highlight bottom
-  }
-};
-
 export const global = StyleSheet.create(
   {
     nav_header_text_style: {
@@ -101,4 +74,30 @@ export const global = StyleSheet.create(
       resizeMode: 'contain', //'cover' | 'contain'
     },
   });
+
+// more info https://goo.gl/dqw4jF
+export const header = {
+  // text
+  titleStyle: global.nav_header_text_style,
+  // background
+  style: global.nav_header_bg_style,
+  // arrows
+  tintColor: colors.text_light,
+};
+
+// more info https://goo.gl/eawcVg
+export const tabs = {
+  // text
+  labelStyle: {
+    fontFamily: values.font_body,
+    fontSize: values.font_body_size,
+  },
+  activeTintColor: colors.text_dark, // text color active tab
+  inactiveTintColor: colors.text_medium, // text color inactive tab
+  indicatorStyle: {backgroundColor: colors.button_bg}, // active tab highlight top
+  style: {
+    backgroundColor: colors.background_medium, // background color of tabs
+    borderTopColor: colors.background_light // active tab highlight bottom
+  }
+};
 

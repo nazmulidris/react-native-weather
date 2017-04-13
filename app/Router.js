@@ -18,13 +18,13 @@ const nav_tab = TabNavigator(
     DetailsScreen2: {screen: DetailsScreen2},
   },
   {
-    tabBarOptions: css.tabbar
+    tabBarOptions: css.tabs
   },
 );
 
 nav_tab.navigationOptions = {
   title: 'Details',
-  header: css.navbar,
+  header: css.header,
 };
 
 //

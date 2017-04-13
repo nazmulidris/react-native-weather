@@ -10,14 +10,7 @@ export class HomeScreen extends Component {
   // more info https://goo.gl/dqw4jF
   static navigationOptions = {
     title: 'Weather App',
-    header: {
-      // text
-      titleStyle: css.global.nav_header_text_style,
-      // background
-      style: css.global.nav_header_bg_style,
-      // arrows
-      tintColor: css.colors.text_light,
-    }
+    header: css.header
   };
   
   render() {
