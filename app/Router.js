@@ -13,19 +13,20 @@ import * as css from "./Styles";
 //
 
 const nav_tab = TabNavigator(
+  // routes
   {
     DetailsScreen1: {screen: DetailsScreen1},
     DetailsScreen2: {screen: DetailsScreen2},
   },
+  // navigator config
   {
+    navigationOptions: {
+      title: 'Details',
+      header: css.header,
+    },
     tabBarOptions: css.tabs
   },
 );
-
-nav_tab.navigationOptions = {
-  title: 'Details',
-  header: css.header,
-};
 
 //
 // stack
