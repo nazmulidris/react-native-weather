@@ -13,17 +13,13 @@ import * as css from "./Styles";
 //
 
 const nav_tab = TabNavigator(
-  // routes
+  // route config
   {
     DetailsScreen1: {screen: DetailsScreen1},
     DetailsScreen2: {screen: DetailsScreen2},
   },
   // navigator config
   {
-    navigationOptions: {
-      title: 'Details',
-      header: css.header,
-    },
     tabBarOptions: css.tabs
   },
 );
@@ -33,7 +29,7 @@ const nav_tab = TabNavigator(
 //
 
 const nav_stack = StackNavigator(
-  // routes
+  // route config
   {
     HomeRoute: {screen: HomeScreen}, // this is displayed first
     DetailsRoute: {screen: nav_tab},
@@ -41,7 +37,10 @@ const nav_stack = StackNavigator(
   // navigator config
   {
     navigationOptions: {
-      header: css.header,
+      header: {
+        ...css.header,
+        title: 'Weather App'
+      },
     }
   }
 );

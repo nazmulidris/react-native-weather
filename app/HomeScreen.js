@@ -7,11 +7,6 @@ import * as css from "./Styles";
 
 export class HomeScreen extends Component {
   
-  // more info https://goo.gl/dqw4jF
-  static navigationOptions = {
-    title: 'Weather App',
-  };
-  
   render() {
     const msg1 = `Home`;
     const msg2 = `More coming soon!`;
