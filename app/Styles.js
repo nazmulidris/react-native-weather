@@ -6,6 +6,7 @@ import {StyleSheet} from "react-native";
 export const colors = {
   "background_dark": '#455a64',
   "background_medium": '#b3c4cb',
+  "background_light": '#d9e3f0',
   "button_bg": '#0693e3',
   "button_fg": '#d9e3f0',
   "text_light": '#d9d9d9',

@@ -7,7 +7,7 @@ import * as css from "./Styles";
 export class DetailsScreen2 extends Component {
   
   static navigationOptions = {
-    title: `Details Screen 2`
+    title: `Details Screen 2`,
   };
   
   render() {
