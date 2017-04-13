@@ -33,9 +33,17 @@ const nav_tab = TabNavigator(
 //
 
 const nav_stack = StackNavigator(
+  // routes
   {
     HomeRoute: {screen: HomeScreen}, // this is displayed first
     DetailsRoute: {screen: nav_tab},
-  });
+  },
+  // navigator config
+  {
+    navigationOptions: {
+      header: css.header,
+    }
+  }
+);
 
 AppRegistry.registerComponent('WeatherApp', () => nav_stack);
