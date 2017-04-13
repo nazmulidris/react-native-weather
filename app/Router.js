@@ -12,40 +12,19 @@ import * as css from "./Styles";
 // tabs
 //
 
-// more info https://goo.gl/eawcVg
 const nav_tab = TabNavigator(
   {
     DetailsScreen1: {screen: DetailsScreen1},
     DetailsScreen2: {screen: DetailsScreen2},
   },
   {
-    tabBarOptions: {
-      labelStyle: {
-        fontFamily: css.values.font_body,
-        fontSize: css.values.font_body_size,
-      },
-      activeTintColor: css.colors.text_dark, // text color active tab
-      inactiveTintColor: css.colors.text_medium, // text color inactive tab
-      indicatorStyle: {backgroundColor: css.colors.button_bg}, // active tab highlight top
-      style: {
-        backgroundColor: css.colors.background_medium, // background color of tabs
-        borderTopColor: css.colors.background_light // active tab highlight bottom
-      }
-    }
+    tabBarOptions: css.tabbar
   },
 );
 
-// more info https://goo.gl/dqw4jF
 nav_tab.navigationOptions = {
   title: 'Details',
-  header: {
-    // text
-    titleStyle: css.global.nav_header_text_style,
-    // background
-    style: css.global.nav_header_bg_style,
-    // arrows
-    tintColor: css.colors.text_light,
-  },
+  header: css.navbar,
 };
 
 //
