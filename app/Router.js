@@ -39,6 +39,7 @@ const nav_stack = StackNavigator(
   },
   // navigator config
   {
+    //headerMode: 'none', // this removes the navigation header
     navigationOptions: {
       header: {
         ...css.header,
