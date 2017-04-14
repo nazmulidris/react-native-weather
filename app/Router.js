@@ -48,10 +48,10 @@ const nav_stack = StackNavigator(
   {
     //headerMode: 'none', // this removes the navigation header
     navigationOptions: {
-      header: {
-        ...css.header,
-        title: 'Weather App'
-      },
+      // label text
+      headerTitle: 'Weather App',
+      // other styling
+      ...css.header,
     }
   }
 );
@@ -64,7 +64,7 @@ const customComponent = (props) => (
   <ScrollView
     style={{
       flex: 1,
-      backgroundColor: 'lightblue',
+      backgroundColor: css.drawer.style.backgroundColor,
     }}>
     <DrawerView.Items {...props} />
   </ScrollView>
@@ -76,19 +76,15 @@ const nav_drawer = DrawerNavigator(
     HomeRoute: {
       screen: nav_stack,
       navigationOptions: {
-        drawer: {
-          label: 'Main App',
-          icon: ({tintColor}) => <Icon name="wb-sunny" color={tintColor}/>,
-        },
+        drawerLabel: 'Main App',
+        drawerIcon: ({tintColor}) => <Icon name="wb-sunny" color={tintColor}/>,
       }
     },
     SettingsRoute: {
       screen: SettingsScreen,
       navigationOptions: {
-        drawer: {
-          label: 'Settings',
-          icon: ({tintColor}) => <Icon name="settings" color={tintColor}/>,
-        },
+        drawerLabel: 'Settings',
+        drawerIcon: ({tintColor}) => <Icon name="settings" color={tintColor}/>,
       }
     },
   },
@@ -97,21 +93,7 @@ const nav_drawer = DrawerNavigator(
     contentComponent: customComponent,
     drawerPosition: 'left',
     // styling for for DrawerView.Items in contentOptions
-    contentOptions: {
-      activeBackgroundColor: 'red',
-      inactiveBackgroundColor: 'green',
-      inactiveTintColor: 'lightblue', // text color for inactive drawer items
-      activeTintColor: 'cyan', // text color for active drawer items
-      // style object for text style
-      labelStyle: {
-        fontFamily: 'monospace',
-        fontSize: 16,
-      },
-      // style object for the content section
-      style: {
-        backgroundColor: 'grey'
-      },
-    }
+    contentOptions: css.drawer
   }
 );
 

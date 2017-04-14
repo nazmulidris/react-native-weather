@@ -79,11 +79,11 @@ export const global = StyleSheet.create(
 // more info https://goo.gl/dqw4jF
 export const header = {
   // text
-  titleStyle: global.nav_header_text_style,
+  headerTitleStyle: global.nav_header_text_style,
   // background
-  style: global.nav_header_bg_style,
+  headerStyle: global.nav_header_bg_style,
   // arrows
-  tintColor: colors.text_light,
+  headerTintColor: colors.text_light,
 };
 
 // more info https://goo.gl/eawcVg
@@ -102,3 +102,21 @@ export const tabs = {
   }
 };
 
+// styling for for DrawerView.Items in contentOptions
+// more info - https://goo.gl/d74VUZ
+export const drawer = {
+    activeBackgroundColor: colors.background_medium,
+    inactiveBackgroundColor: colors.background_dark,
+    inactiveTintColor: colors.text_light, // text color for inactive drawer items
+    activeTintColor: colors.text_dark, // text color for active drawer items
+    // style object for text style
+    labelStyle: {
+      fontFamily: values.font_title,
+      fontSize: values.font_title_size,
+    },
+    // style object for the content section
+    style: {
+      backgroundColor: colors.background_dark,
+    },
+  }
+;
