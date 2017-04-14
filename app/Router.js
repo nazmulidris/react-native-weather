@@ -22,8 +22,8 @@ import {Icon} from "react-native-elements";
 const nav_tab = TabNavigator(
   // route config
   {
-    DetailsScreen1: {screen: DetailsScreen1},
-    DetailsScreen2: {screen: DetailsScreen2},
+    DetailsRoute1: {screen: DetailsScreen1},
+    DetailsRoute2: {screen: DetailsScreen2},
   },
   // navigator config
   {
