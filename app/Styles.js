@@ -18,6 +18,7 @@ export const values = {
   "font_title": 'NotoSans-Bold',
   "font_body": 'NotoSans-Regular',
   "font_body_size": 14,
+  "font_title_size": 20,
   'border_radius': 2,
 };
 
@@ -44,7 +45,7 @@ export const global = StyleSheet.create(
       marginLeft: 8,
       marginRight: 8,
       marginBottom: 4,
-      fontSize: 20,
+      fontSize: values.font_title_size,
       color: colors.text_dark,
       fontFamily: values.font_title, // more info https://goo.gl/7wYazn
     },
