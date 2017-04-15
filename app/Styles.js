@@ -24,13 +24,6 @@ export const values = {
 
 export const global = StyleSheet.create(
   {
-    nav_header_text_style: {
-      fontFamily: values.font_body,
-      color: colors.text_light,
-    },
-    nav_header_bg_style: {
-      backgroundColor: colors.background_dark,
-    },
     v_container: {
       flex: 1,
       padding: 8,
@@ -78,12 +71,28 @@ export const global = StyleSheet.create(
 
 // more info https://goo.gl/dqw4jF
 export const header = {
-  // text
-  headerTitleStyle: global.nav_header_text_style,
   // background
-  headerStyle: global.nav_header_bg_style,
+  headerStyle: {
+    backgroundColor: colors.background_dark,
+  },
   // arrows
   headerTintColor: colors.text_light,
+  // my own styles for titleAndIcon
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingLeft: 8,
+  },
+  // my own styles for titleAndIcon
+  text: {
+    paddingLeft: 8,
+    color: colors.text_light,
+    fontFamily: values.font_body,
+    fontSize: values.font_title_size,
+  }
+
 };
 
 // more info https://goo.gl/eawcVg

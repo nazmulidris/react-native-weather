@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import {AppRegistry, ScrollView} from "react-native";
+import {AppRegistry, ScrollView, Text, View} from "react-native";
 import {
   DrawerNavigator,
   DrawerView,
@@ -38,6 +38,12 @@ const nav_tab = TabNavigator(
 // stack
 //
 
+const titleAndIcon =
+  <View style={css.header.container}>
+    <Icon name="favorite" color='white'/>
+    <Text style={css.header.text}>Weather App</Text>
+  </View>;
+
 const nav_stack = StackNavigator(
   // route config
   {
@@ -49,7 +55,7 @@ const nav_stack = StackNavigator(
     //headerMode: 'none', // this removes the navigation header
     navigationOptions: {
       // label text
-      headerTitle: 'Weather App',
+      headerTitle: titleAndIcon,
       // other styling
       ...css.header,
     }
