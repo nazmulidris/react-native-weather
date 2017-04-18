@@ -15,9 +15,17 @@ export const colors = {
   "separator_background": '#E2E2E2',
 };
 
+// workaround since on iOS NotoSans works, but not NotoSans-Regular
+// on Android it works as expected (ie NotoSans-Regular)
+export const getFont = () => {
+  if (require('react-native').Platform.OS === 'ios') {
+    return 'NotoSans';
+  }
+  else return 'NotoSans-Regular';
+};
+
 export const values = {
-  "font_title": 'NotoSans-Bold',
-  "font_body": 'NotoSans-Regular',
+  "font_body": getFont(),
   "font_body_size": 14,
   "font_title_size": 20,
   "font_time_size": 12,
@@ -248,7 +256,7 @@ export const drawer = {
   activeTintColor: colors.text_dark, // text color for active drawer items
   // style object for text style
   labelStyle: {
-    fontFamily: values.font_title,
+    fontFamily: values.font_body,
     fontSize: values.font_title_size,
   },
   // style object for the content section
