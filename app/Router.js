@@ -27,7 +27,7 @@ const nav_tab = TabNavigator(
   },
   // navigator config
   {
-    lazyLoad: true, // render the tabs lazily
+    lazyLoad: false, // render the tabs lazily
     tabBarPosition: 'bottom', // where are the tabs shown
     backBehavior: 'none', // back button doesn't take you to the initial tab
     tabBarOptions: css.tabs
