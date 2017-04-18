@@ -40,7 +40,7 @@ const nav_tab = TabNavigator(
 
 const titleAndIcon =
   <View style={css.header.container}>
-    <Icon name="favorite" color='white'/>
+    <Icon name="wb-sunny" color='white'/>
     <Text style={css.header.text}>Weather App</Text>
   </View>;
 

@@ -1,17 +1,102 @@
 // @flow
 
 import React, {Component} from "react";
-import {StatusBar, Text, ToastAndroid, View} from "react-native";
-import {Button, Icon} from "react-native-elements";
+import {FlatList, StatusBar, Text, TouchableHighlight, View} from "react-native";
+import {Icon} from "react-native-elements";
 import * as css from "./Styles";
 
 export class HomeScreen extends Component {
   
+  // reference to navigator
+  _navigation;
+  
+  // dummy data to put in list view
+  listData = [
+    {
+      key: '1',
+      time: '7:04pm',
+      place: 'Palo Alto',
+      icon: 'ios-sunny-outline',
+      iconColor: '#FFCF17',
+      currentTemp: '62',
+      description: 'Sunny',
+    },
+    {
+      key: '2',
+      time: '7:04pm',
+      place: 'San Francisco',
+      icon: 'ios-sunny-outline',
+      iconColor: '#FFCF17',
+      currentTemp: '60',
+      description: 'Sunny',
+    },
+    {
+      key: '3',
+      time: '7:04pm',
+      place: 'San Jose',
+      icon: 'ios-sunny-outline',
+      iconColor: '#FFCF17',
+      currentTemp: '66',
+      description: 'Sunny',
+    },
+    {
+      key: '4',
+      time: '7:04pm',
+      place: 'Los Angeles',
+      icon: 'ios-sunny-outline',
+      iconColor: '#FFCF17',
+      currentTemp: '66',
+      description: 'sunny',
+    },
+    {
+      key: '5',
+      time: '3:04am',
+      place: 'London',
+      icon: 'ios-cloudy-night-outline',
+      iconColor: '#464646',
+      currentTemp: '50',
+      description: 'Cloudy',
+    },
+  ];
+  
+  // only renders each list item
+  renderRow({item}) {
+    
+    const time = `${item.time}`;
+    const place = `${item.place}`;
+    const temp = `${item.currentTemp}${String.fromCharCode(176)}`;
+    const icon = `${item.icon}`;
+    const iconColor = `${item.iconColor}`;
+    
+    return (
+      <TouchableHighlight
+        activeOpacity={0.5}
+        underlayColor={css.colors.transparent_white}
+        onPress={
+          () => {
+            this._navigation.navigate("DetailsRoute", {...item});
+          }
+        }
+      >
+        <View style={css.list.row}>
+          <View style={css.list.row_cell_timeplace}>
+            <Text style={css.list.row_time}>{time}</Text>
+            <Text style={css.list.row_place}>{place}</Text>
+          </View>
+          <Icon color={iconColor} size={css.values.small_icon_size} name={icon}
+                type='ionicon'/>
+          <Text style={css.list.row_cell_temp}>{temp}</Text>
+        </View>
+      </TouchableHighlight>
+    );
+  };
+  
+  // sets up the entire screen
   render() {
     const msg1 = `Home`;
     const msg2 = `More coming soon!`;
   
-    const {navigate} = this.props.navigation;
+    _navigation = this.props.navigation;
     
     return (
       <View style={css.global.v_container}>
@@ -23,45 +108,12 @@ export class HomeScreen extends Component {
           backgroundColor={css.colors.background_dark}
         />
   
-        <Text style={css.global.title}>{msg1}</Text>
-  
-        <Text style={css.global.body1}>{msg2}</Text>
-  
-        <View style={css.global.h_container}>
-          <Button
-            onPress={() => navigate('DetailsRoute', {param1: msg2})}
-            backgroundColor={css.colors.button_bg}
-            color={css.colors.button_fg}
-            title='Detail Screen'
-            fontFamily={css.values.font_body}
-            fontsize={css.values.font_body_size}
-            icon={{
-              name: 'android',
-              color: css.colors.button_fg
-            }}
-            borderRadius={css.values.border_radius}
-          />
-          <Icon
-            onPress={() => ToastAndroid.show('Heart button pressed', 10000)}
-            reverse
-            name='heartbeat'
-            type="font-awesome"
-            color={css.colors.button_bg}
-          />
-          <Button
-            onPress={() => ToastAndroid.show('Info button pressed', 10000)}
-            backgroundColor={css.colors.button_bg}
-            color={css.colors.button_fg}
-            title='Info'
-            fontFamily={css.values.font_body}
-            icon={{
-              name: 'bug-report',
-              color: css.colors.button_fg
-            }}
-            fontsize={css.values.font_body_size}
-            borderRadius={css.values.border_radius}
-          />
-        </View>
+        <FlatList
+          style={css.list.container}
+          data={this.listData}
+          renderItem={this.renderRow}
+        />
+      
       </View>
     );
   }

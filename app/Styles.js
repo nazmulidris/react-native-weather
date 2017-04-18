@@ -6,12 +6,15 @@ import {StyleSheet} from "react-native";
 export const colors = {
   "background_dark": '#455a64',
   "background_medium": '#b3c4cb',
-  "background_light": '#d9e3f0',
+  "background_light": '#ffffff',
   "button_bg": '#0693e3',
   "button_fg": '#d9e3f0',
   "text_light": '#d9d9d9',
   "text_medium": '#455a64',
   "text_dark": '#263238',
+  "weather_text_color": '#464646',
+  "transparent_white": '#FFFFFF00',
+  "separator_background": '#E2E2E2',
 };
 
 export const values = {
@@ -19,11 +22,106 @@ export const values = {
   "font_body": 'NotoSans-Regular',
   "font_body_size": 14,
   "font_title_size": 20,
+  "font_time_size": 12,
+  "font_place_size": 20,
+  "font_temp_size": 27,
   'border_radius': 2,
+  "small_icon_size": 40,
+  "large_icon_size": 110,
 };
+
+export const list = StyleSheet.create(
+  {
+    container: {
+      marginTop: 14,
+      alignSelf: "stretch",
+    },
+    row: {
+      elevation: 1,
+      borderRadius: 2,
+      backgroundColor: colors.background_light,
+      flex: 1,
+      flexDirection: 'row',  // main axis
+      justifyContent: 'flex-start', // main axis
+      alignItems: 'center', // cross axis
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingLeft: 18,
+      paddingRight: 16,
+      marginLeft: 14,
+      marginRight: 14,
+      marginTop: 0,
+      marginBottom: 6,
+    },
+    row_cell_timeplace: {
+      flex: 1,
+      flexDirection: 'column',
+    },
+    row_cell_temp: {
+      color: colors.weather_text_color,
+      paddingLeft: 16,
+      flex: 0,
+      fontSize: values.font_temp_size,
+      fontFamily: values.font_body,
+    },
+    row_time: {
+      color: colors.weather_text_color,
+      textAlignVertical: 'bottom',
+      includeFontPadding: false,
+      flex: 0,
+      fontSize: values.font_time_size,
+      fontFamily: values.font_body,
+    },
+    row_place: {
+      color: colors.weather_text_color,
+      textAlignVertical: 'top',
+      includeFontPadding: false,
+      flex: 0,
+      fontSize: values.font_place_size,
+      fontFamily: values.font_body,
+    },
+  });
+
+export const details_screen_1 = StyleSheet.create(
+  {
+    v_container: {
+      flex: 1,
+      padding: 8,
+      flexDirection: 'column', // main axis
+      justifyContent: 'center', // main axis
+      alignItems: 'center', // cross axis
+      backgroundColor: colors.text_light,
+    },
+    separator: {
+      alignSelf: 'stretch',
+      backgroundColor: colors.separator_background,
+      height: 1,
+      marginLeft: 10,
+      marginRight: 10,
+    },
+    place: {
+      color: colors.weather_text_color,
+      fontFamily: values.font_body,
+      fontSize: 35,
+    },
+    description: {
+      color: colors.weather_text_color,
+      fontFamily: values.font_body,
+      fontSize: 14,
+    },
+    current_temp: {
+      color: colors.weather_text_color,
+      fontFamily: values.font_body,
+      fontSize: 45,
+    }
+  }
+);
 
 export const global = StyleSheet.create(
   {
+    backgroundOverride: {
+      backgroundColor: colors.background_light,
+    },
     v_container: {
       flex: 1,
       padding: 8,
@@ -92,7 +190,7 @@ export const header = {
     fontFamily: values.font_body,
     fontSize: values.font_title_size,
   }
-
+  
 };
 
 // more info https://goo.gl/eawcVg
