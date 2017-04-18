@@ -84,6 +84,58 @@ export const listData = [
         temp: '55'
       },
     ],
+    weeklyForecast: [
+      {
+        key: '1',
+        day: 'TUE',
+        temp: '62',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '2',
+        day: 'WED',
+        temp: '68',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '3',
+        day: 'THU',
+        temp: '57',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '4',
+        day: 'FRI',
+        temp: '73',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '5',
+        day: 'SAT',
+        temp: '70',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+    ],
   },
   {
     key: '2',
@@ -126,6 +178,58 @@ export const listData = [
           iconColor: '#FFCF17'
         },
         temp: '60'
+      },
+    ],
+    weeklyForecast: [
+      {
+        key: '1',
+        day: 'TUE',
+        temp: '62',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '2',
+        day: 'WED',
+        temp: '68',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '3',
+        day: 'THU',
+        temp: '57',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '4',
+        day: 'FRI',
+        temp: '73',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '5',
+        day: 'SAT',
+        temp: '70',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
       },
     ],
   },
@@ -172,6 +276,58 @@ export const listData = [
         temp: '60'
       },
     ],
+    weeklyForecast: [
+      {
+        key: '1',
+        day: 'TUE',
+        temp: '62',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '2',
+        day: 'WED',
+        temp: '68',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '3',
+        day: 'THU',
+        temp: '57',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '4',
+        day: 'FRI',
+        temp: '73',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '5',
+        day: 'SAT',
+        temp: '70',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+    ],
   },
   {
     key: '4',
@@ -216,6 +372,58 @@ export const listData = [
         temp: '60'
       },
     ],
+    weeklyForecast: [
+      {
+        key: '1',
+        day: 'TUE',
+        temp: '62',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '2',
+        day: 'WED',
+        temp: '68',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '3',
+        day: 'THU',
+        temp: '57',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '4',
+        day: 'FRI',
+        temp: '73',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '5',
+        day: 'SAT',
+        temp: '70',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+    ],
   },
   {
     key: '5',
@@ -258,6 +466,58 @@ export const listData = [
           iconColor: '#FFCF17'
         },
         temp: '60'
+      },
+    ],
+    weeklyForecast: [
+      {
+        key: '1',
+        day: 'TUE',
+        temp: '62',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '2',
+        day: 'WED',
+        temp: '68',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '3',
+        day: 'THU',
+        temp: '57',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
+      },
+      {
+        key: '4',
+        day: 'FRI',
+        temp: '73',
+        icon: {
+          iconName: 'ios-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#FFCF17'
+        }
+      },
+      {
+        key: '5',
+        day: 'SAT',
+        temp: '70',
+        icon: {
+          iconName: 'ios-partly-sunny-outline',
+          iconFont: 'ionicon',
+          iconColor: '#48B247'
+        }
       },
     ],
   },

@@ -1,8 +1,9 @@
 // @flow
 
 import React, {Component} from "react";
-import {Text, View} from "react-native";
+import {FlatList, Text, View} from "react-native";
 import * as css from "./Styles";
+import {Icon} from "react-native-elements";
 
 export class DetailsScreen2 extends Component {
   
@@ -10,20 +11,39 @@ export class DetailsScreen2 extends Component {
     title: `WEEKLY`,
   };
   
+  renderRow({item}) {
+    
+    let {day, icon, key, temp} = item;
+    const {iconName, iconFont, iconColor} = icon;
+    temp = css.addDegreesAtEnd(temp);
+    
+    return (
+      <View style={css.details_screen_2.row}>
+        <Text style={css.details_screen_2.day}>{day}</Text>
+        <Icon color={iconColor} size={css.values.small_icon_size} name={iconName}
+              type={iconFont}/>
+        <Text style={css.details_screen_2.temp}>{temp}</Text>
+      </View>
+    );
+    
+  }
+  
   render() {
   
-    const {currentTemp, icon, key, place, time} =
+    const {currentTemp, icon, key, place, time, weeklyForecast} =
       this.props.navigation.state.params;
   
     const {iconName, iconFont, iconColor} = icon;
   
-    const msg1 = `Details 2`;
-    const msg2 = `${place}, ${time}, Temp:${currentTemp}`;
-  
     return (
-      <View style={css.global.v_container}>
-        <Text style={css.global.title}>{msg1}</Text>
-        <Text style={css.global.body1}>{msg2}</Text>
+      <View style={[css.details_screen_2.v_container, css.global.backgroundOverride]}>
+        <Text style={[css.details_screen_1.place]}>{place}</Text>
+        <FlatList
+          style={css.details_screen_2.list}
+          horizontal={true}
+          data={weeklyForecast}
+          renderItem={this.renderRow}
+        />
       </View>
     );
   

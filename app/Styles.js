@@ -87,6 +87,37 @@ export const list = StyleSheet.create(
     },
   });
 
+export const details_screen_2 = StyleSheet.create(
+  {
+    v_container: {
+      flex: 1,
+      flexDirection: 'column', // main axis
+      alignItems: 'center', // cross axis
+      backgroundColor: colors.text_light,
+      padding: 8,
+    },
+    day: {
+      //backgroundColor: 'lavender',
+      fontSize: 14,
+      color: colors.weather_text_color,
+    },
+    temp: {
+      fontSize: 24,
+      color: colors.weather_text_color,
+    },
+    row: {
+      alignItems: 'center',
+      //backgroundColor: 'lightblue',
+      marginLeft: 20,
+      marginRight: 20
+    },
+    list: {
+      //backgroundColor: 'lightyellow',
+      paddingTop: 20,
+    },
+  }
+);
+
 export const details_screen_1 = StyleSheet.create(
   {
     v_container: {
@@ -107,6 +138,8 @@ export const details_screen_1 = StyleSheet.create(
       marginBottom: 10,
     },
     place: {
+      paddingTop: 20,
+      paddingBottom: 20,
       color: colors.weather_text_color,
       fontFamily: values.font_body,
       fontSize: 35,
