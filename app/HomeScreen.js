@@ -25,31 +25,74 @@ export class HomeScreen extends Component {
       description: 'Sunny',
       dailyForecast: [
         {
+          key: '1',
           time: '8 PM',
           icon: {
             iconName: 'ios-moon-outline',
             iconFont: 'ionicon',
-            iconColor: '#FFCF17'
+            iconColor: '#464646'
           },
           temp: '59'
         },
         {
+          key: '2',
           time: '9 PM',
           icon: {
             iconName: 'ios-moon-outline',
             iconFont: 'ionicon',
-            iconColor: '#FFCF17'
+            iconColor: '#464646'
           },
           temp: '57'
         },
         {
+          key: '3',
           time: '10 PM',
           icon: {
             iconName: 'ios-moon-outline',
             iconFont: 'ionicon',
-            iconColor: '#FFCF17'
+            iconColor: '#464646'
           },
-          temp: '60'
+          temp: '57'
+        },
+        {
+          key: '4',
+          time: '11 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#464646'
+          },
+          temp: '57'
+        },
+        {
+          key: '5',
+          time: '12 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#464646'
+          },
+          temp: '57'
+        },
+        {
+          key: '6',
+          time: '1 AM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#464646'
+          },
+          temp: '56'
+        },
+        {
+          key: '7',
+          time: '2 AM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#464646'
+          },
+          temp: '55'
         },
       ],
     },
@@ -66,6 +109,7 @@ export class HomeScreen extends Component {
       description: 'Sunny',
       dailyForecast: [
         {
+          key: '1',
           time: '8 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -75,6 +119,7 @@ export class HomeScreen extends Component {
           temp: '59'
         },
         {
+          key: '2',
           time: '9 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -84,6 +129,7 @@ export class HomeScreen extends Component {
           temp: '57'
         },
         {
+          key: '3',
           time: '10 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -107,6 +153,7 @@ export class HomeScreen extends Component {
       description: 'Sunny',
       dailyForecast: [
         {
+          key: '1',
           time: '8 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -116,6 +163,7 @@ export class HomeScreen extends Component {
           temp: '59'
         },
         {
+          key: '2',
           time: '9 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -125,6 +173,7 @@ export class HomeScreen extends Component {
           temp: '57'
         },
         {
+          key: '3',
           time: '10 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -148,6 +197,7 @@ export class HomeScreen extends Component {
       description: 'sunny',
       dailyForecast: [
         {
+          key: '1',
           time: '8 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -157,6 +207,7 @@ export class HomeScreen extends Component {
           temp: '59'
         },
         {
+          key: '2',
           time: '9 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -166,6 +217,7 @@ export class HomeScreen extends Component {
           temp: '57'
         },
         {
+          key: '3',
           time: '10 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -189,6 +241,7 @@ export class HomeScreen extends Component {
       description: 'Cloudy',
       dailyForecast: [
         {
+          key: '1',
           time: '8 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -198,6 +251,7 @@ export class HomeScreen extends Component {
           temp: '59'
         },
         {
+          key: '2',
           time: '9 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -207,6 +261,7 @@ export class HomeScreen extends Component {
           temp: '57'
         },
         {
+          key: '3',
           time: '10 PM',
           icon: {
             iconName: 'ios-moon-outline',
@@ -260,7 +315,7 @@ export class HomeScreen extends Component {
     return (
       <View style={css.global.v_container}>
         <StatusBar
-          hidden={false}
+          hidden={true}
           translucent={false}
           animated={true}
           barStyle={'light-content'}

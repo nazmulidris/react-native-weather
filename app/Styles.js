@@ -26,6 +26,7 @@ export const values = {
   "font_place_size": 20,
   "font_temp_size": 27,
   'border_radius': 2,
+  "tiny_icon_size": 22,
   "small_icon_size": 40,
   "large_icon_size": 110,
 };
@@ -119,7 +120,19 @@ export const details_screen_1 = StyleSheet.create(
       color: colors.weather_text_color,
       fontFamily: values.font_body,
       fontSize: 45,
-    }
+    },
+    list_container: {
+      marginTop: 14,
+      alignSelf: "stretch",
+    },
+    list_row: {
+      flexDirection: 'row',
+      paddingLeft: 16,
+      paddingRight: 16,
+      paddingBottom: 12
+    },
+    list_row_time: {flex: 1},
+    list_row_temp: {paddingLeft: 12},
   }
 );
 
