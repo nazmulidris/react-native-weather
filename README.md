@@ -4,4 +4,6 @@ Please checkout this tutorial to learn more about this project - https://develop
 
 You can watch a video of the app running below -
 
-[![Alt text for your video](https://img.youtube.com/vi/qy9B6z3P2Jk/0.jpg)](http://www.youtube.com/watch?v=qy9B6z3P2Jk)
+[![Alt text for your video](https://img.youtube.com/vi/gm5tIFRMWX0/0.jpg)](http://www.youtube.com/watch?v=gm5tIFRMWX0)
+
+[![Alt text for your video](https://img.youtube.com/vi/QGxv8efnkaQ/0.jpg)](http://www.youtube.com/watch?v=QGxv8efnkaQ)
