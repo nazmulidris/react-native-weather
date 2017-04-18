@@ -1,7 +1,7 @@
 // @flow
 
 import React, {Component} from "react";
-import {Text, View} from "react-native";
+import {StatusBar, Text, View} from "react-native";
 import * as css from "./Styles";
 
 export class SettingsScreen extends Component {
@@ -12,12 +12,18 @@ export class SettingsScreen extends Component {
   
   render() {
     const msg1 = `Settings Screen`;
-    const msg2 = `Show settings here`;
     
     return (
-      <View style={css.global.v_container}>
-        <Text style={css.global.title}>{msg1}</Text>
-        <Text style={css.global.body1}>{msg2}</Text>
+      <View style={css.settings_screen.v_container}>
+        <StatusBar
+          hidden={false}
+          translucent={false}
+          animated={true}
+          barStyle={'light-content'}
+          backgroundColor={css.colors.secondary}
+        />
+    
+        <Text style={css.settings_screen.text}>{msg1}</Text>
       </View>
     );
   }

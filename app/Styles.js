@@ -4,13 +4,11 @@ import React from "react";
 import {StyleSheet} from "react-native";
 
 export const colors = {
-  "background_dark": '#455a64',
-  "background_medium": '#b3c4cb',
-  "background_light": '#ffffff',
-  "button_bg": '#0693e3',
-  "button_fg": '#d9e3f0',
-  "text_light": '#d9d9d9',
-  "text_medium": '#455a64',
+  "secondary": '#0686E4',
+  "tertiary": '#ffffff',
+  "background_dark": '#F0F0F0',
+  "text_light": '#ffffff',
+  "text_medium": '#464646',
   "text_dark": '#263238',
   "weather_text_color": '#464646',
   "transparent_white": '#FFFFFF00',
@@ -31,11 +29,11 @@ export const values = {
   "large_icon_size": 110,
 };
 
-export const addDegreesAtEnd = (temp) => {
+export const addDegreesToEnd = (temp) => {
   return `${temp}${String.fromCharCode(176)}`
 };
 
-export const list = StyleSheet.create(
+export const home_screen_list = StyleSheet.create(
   {
     container: {
       marginTop: 14,
@@ -44,7 +42,7 @@ export const list = StyleSheet.create(
     row: {
       elevation: 1,
       borderRadius: 2,
-      backgroundColor: colors.background_light,
+      backgroundColor: colors.tertiary,
       flex: 1,
       flexDirection: 'row',  // main axis
       justifyContent: 'flex-start', // main axis
@@ -87,13 +85,25 @@ export const list = StyleSheet.create(
     },
   });
 
+export const home_screen = StyleSheet.create(
+  {
+    v_container: {
+      flex: 1,
+      padding: 8,
+      flexDirection: 'column', // main axis
+      justifyContent: 'center', // main axis
+      alignItems: 'center', // cross axis
+      backgroundColor: colors.background_dark,
+    },
+  });
+
 export const details_screen_2 = StyleSheet.create(
   {
     v_container: {
       flex: 1,
       flexDirection: 'column', // main axis
       alignItems: 'center', // cross axis
-      backgroundColor: colors.text_light,
+      backgroundColor: colors.tertiary,
       padding: 8,
     },
     day: {
@@ -126,7 +136,7 @@ export const details_screen_1 = StyleSheet.create(
       flexDirection: 'column', // main axis
       justifyContent: 'center', // main axis
       alignItems: 'center', // cross axis
-      backgroundColor: colors.text_light,
+      backgroundColor: colors.tertiary,
     },
     separator: {
       alignSelf: 'stretch',
@@ -169,61 +179,29 @@ export const details_screen_1 = StyleSheet.create(
   }
 );
 
-export const global = StyleSheet.create(
+export const settings_screen = StyleSheet.create(
   {
-    backgroundOverride: {
-      backgroundColor: colors.background_light,
-    },
     v_container: {
       flex: 1,
       padding: 8,
       flexDirection: 'column', // main axis
-      justifyContent: 'center', // main axis
+      justifyContent: 'flex-start', // main axis
       alignItems: 'center', // cross axis
-      backgroundColor: colors.text_light,
+      backgroundColor: colors.tertiary,
     },
-    title: {
-      flex: -1, // shrink to min height & width if needed
-      marginTop: 8,
-      marginLeft: 8,
-      marginRight: 8,
-      marginBottom: 4,
-      fontSize: values.font_title_size,
-      color: colors.text_dark,
-      fontFamily: values.font_title, // more info https://goo.gl/7wYazn
+    text: {
+      color: colors.weather_text_color,
+      fontFamily: values.font_body,
+      fontSize: 20,
     },
-    body1: {
-      flex: -1,
-      marginTop: 4,
-      marginLeft: 8,
-      marginRight: 8,
-      marginBottom: 8,
-      fontFamily: values.font_body, // more info https://goo.gl/7wYazn
-      fontSize: values.font_body_size,
-      color: colors.text_medium,
-    },
-    h_container: {
-      flex: -1,
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      alignSelf: 'stretch', // overrides container alignItems
-      backgroundColor: colors.background_medium,
-      padding: 16,
-    },
-    icon: {
-      flex: -1,
-      margin: 8,
-      height: 100,
-      width: 75,
-      resizeMode: 'contain', //'cover' | 'contain'
-    },
-  });
+  }
+);
 
 // more info https://goo.gl/dqw4jF
 export const header = {
   // background
   headerStyle: {
-    backgroundColor: colors.background_dark,
+    backgroundColor: colors.secondary,
   },
   // arrows
   headerTintColor: colors.text_light,
@@ -252,30 +230,29 @@ export const tabs = {
     fontFamily: values.font_body,
     fontSize: values.font_body_size,
   },
-  activeTintColor: colors.text_dark, // text color active tab
+  activeTintColor: colors.secondary, // text color active tab
   inactiveTintColor: colors.text_medium, // text color inactive tab
-  indicatorStyle: {backgroundColor: colors.button_bg}, // active tab highlight top
+  indicatorStyle: {backgroundColor: colors.secondary}, // active tab highlight top
   style: {
-    backgroundColor: colors.background_medium, // background color of tabs
-    borderTopColor: colors.background_light // active tab highlight bottom
+    backgroundColor: colors.tertiary, // background color of tabs
+    borderTopColor: colors.tertiary // active tab highlight bottom
   }
 };
 
 // styling for for DrawerView.Items in contentOptions
 // more info - https://goo.gl/d74VUZ
 export const drawer = {
-    activeBackgroundColor: colors.background_medium,
-    inactiveBackgroundColor: colors.background_dark,
-    inactiveTintColor: colors.text_light, // text color for inactive drawer items
-    activeTintColor: colors.text_dark, // text color for active drawer items
-    // style object for text style
-    labelStyle: {
-      fontFamily: values.font_title,
-      fontSize: values.font_title_size,
-    },
-    // style object for the content section
-    style: {
-      backgroundColor: colors.background_dark,
-    },
-  }
-;
+  activeBackgroundColor: colors.tertiary,
+  inactiveBackgroundColor: colors.secondary,
+  inactiveTintColor: colors.text_light, // text color for inactive drawer items
+  activeTintColor: colors.text_dark, // text color for active drawer items
+  // style object for text style
+  labelStyle: {
+    fontFamily: values.font_title,
+    fontSize: values.font_title_size,
+  },
+  // style object for the content section
+  style: {
+    backgroundColor: colors.secondary,
+  },
+};

@@ -17,8 +17,8 @@ export class DetailsScreen1 extends Component {
     let {key, time, icon, temp} = item;
     
     const {iconName, iconFont, iconColor} = icon;
-    
-    temp = css.addDegreesAtEnd(temp);
+  
+    temp = css.addDegreesToEnd(temp);
     
     return (
       <View style={css.details_screen_1.list_row}>
@@ -37,10 +37,10 @@ export class DetailsScreen1 extends Component {
   
     const {iconName, iconFont, iconColor} = icon;
   
-    const temp = css.addDegreesAtEnd(currentTemp);
+    const temp = css.addDegreesToEnd(currentTemp);
     
     return (
-      <View style={[css.details_screen_1.v_container, css.global.backgroundOverride]}>
+      <View style={css.details_screen_1.v_container}>
         <Text style={css.details_screen_1.place}>{place}</Text>
         <Text style={css.details_screen_1.description}>{description}</Text>
         <Icon color={iconColor} size={css.values.large_icon_size} name={iconName}

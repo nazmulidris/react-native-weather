@@ -15,7 +15,7 @@ export class DetailsScreen2 extends Component {
     
     let {day, icon, key, temp} = item;
     const {iconName, iconFont, iconColor} = icon;
-    temp = css.addDegreesAtEnd(temp);
+    temp = css.addDegreesToEnd(temp);
     
     return (
       <View style={css.details_screen_2.row}>
@@ -36,7 +36,7 @@ export class DetailsScreen2 extends Component {
     const {iconName, iconFont, iconColor} = icon;
   
     return (
-      <View style={[css.details_screen_2.v_container, css.global.backgroundOverride]}>
+      <View style={css.details_screen_2.v_container}>
         <Text style={[css.details_screen_1.place]}>{place}</Text>
         <FlatList
           style={css.details_screen_2.list}

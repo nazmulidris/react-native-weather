@@ -16,7 +16,7 @@ export class HomeScreen extends Component {
     
     const time = `${item.time}`;
     const place = `${item.place}`;
-    const temp = css.addDegreesAtEnd(item.currentTemp);
+    const temp = css.addDegreesToEnd(item.currentTemp);
     const {iconName, iconFont, iconColor} = item.icon;
     
     return (
@@ -29,14 +29,14 @@ export class HomeScreen extends Component {
           }
         }
       >
-        <View style={css.list.row}>
-          <View style={css.list.row_cell_timeplace}>
-            <Text style={css.list.row_time}>{time}</Text>
-            <Text style={css.list.row_place}>{place}</Text>
+        <View style={css.home_screen_list.row}>
+          <View style={css.home_screen_list.row_cell_timeplace}>
+            <Text style={css.home_screen_list.row_time}>{time}</Text>
+            <Text style={css.home_screen_list.row_place}>{place}</Text>
           </View>
           <Icon color={iconColor} size={css.values.small_icon_size} name={iconName}
                 type={iconFont}/>
-          <Text style={css.list.row_cell_temp}>{temp}</Text>
+          <Text style={css.home_screen_list.row_cell_temp}>{temp}</Text>
         </View>
       </TouchableHighlight>
     );
@@ -48,17 +48,17 @@ export class HomeScreen extends Component {
     _navigation = this.props.navigation;
     
     return (
-      <View style={css.global.v_container}>
+      <View style={css.home_screen.v_container}>
         <StatusBar
           hidden={false}
           translucent={false}
           animated={true}
           barStyle={'light-content'}
-          backgroundColor={css.colors.background_dark}
+          backgroundColor={css.colors.secondary}
         />
   
         <FlatList
-          style={css.list.container}
+          style={css.home_screen_list.container}
           data={listData}
           renderItem={this.renderRow}
         />
