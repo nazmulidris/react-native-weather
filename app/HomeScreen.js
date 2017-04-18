@@ -16,46 +16,206 @@ export class HomeScreen extends Component {
       key: '1',
       time: '7:04pm',
       place: 'Palo Alto',
-      icon: 'ios-sunny-outline',
-      iconColor: '#FFCF17',
+      icon: {
+        iconName: 'ios-sunny-outline',
+        iconFont: 'ionicon',
+        iconColor: '#FFCF17'
+      },
       currentTemp: '62',
       description: 'Sunny',
+      dailyForecast: [
+        {
+          time: '8 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '59'
+        },
+        {
+          time: '9 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '57'
+        },
+        {
+          time: '10 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '60'
+        },
+      ],
     },
     {
       key: '2',
       time: '7:04pm',
       place: 'San Francisco',
-      icon: 'ios-sunny-outline',
-      iconColor: '#FFCF17',
+      icon: {
+        iconName: 'ios-sunny-outline',
+        iconFont: 'ionicon',
+        iconColor: '#FFCF17'
+      },
       currentTemp: '60',
       description: 'Sunny',
+      dailyForecast: [
+        {
+          time: '8 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '59'
+        },
+        {
+          time: '9 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '57'
+        },
+        {
+          time: '10 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '60'
+        },
+      ],
     },
     {
       key: '3',
       time: '7:04pm',
       place: 'San Jose',
-      icon: 'ios-sunny-outline',
-      iconColor: '#FFCF17',
+      icon: {
+        iconName: 'ios-sunny-outline',
+        iconFont: 'ionicon',
+        iconColor: '#FFCF17'
+      },
       currentTemp: '66',
       description: 'Sunny',
+      dailyForecast: [
+        {
+          time: '8 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '59'
+        },
+        {
+          time: '9 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '57'
+        },
+        {
+          time: '10 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '60'
+        },
+      ],
     },
     {
       key: '4',
       time: '7:04pm',
       place: 'Los Angeles',
-      icon: 'ios-sunny-outline',
-      iconColor: '#FFCF17',
+      icon: {
+        iconName: 'ios-sunny-outline',
+        iconFont: 'ionicon',
+        iconColor: '#FFCF17'
+      },
       currentTemp: '66',
       description: 'sunny',
+      dailyForecast: [
+        {
+          time: '8 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '59'
+        },
+        {
+          time: '9 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '57'
+        },
+        {
+          time: '10 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '60'
+        },
+      ],
     },
     {
       key: '5',
       time: '3:04am',
       place: 'London',
-      icon: 'ios-cloudy-night-outline',
-      iconColor: '#464646',
+      icon: {
+        iconName: 'ios-cloudy-night-outline',
+        iconFont: 'ionicon',
+        iconColor: '#464646'
+      },
       currentTemp: '50',
       description: 'Cloudy',
+      dailyForecast: [
+        {
+          time: '8 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '59'
+        },
+        {
+          time: '9 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '57'
+        },
+        {
+          time: '10 PM',
+          icon: {
+            iconName: 'ios-moon-outline',
+            iconFont: 'ionicon',
+            iconColor: '#FFCF17'
+          },
+          temp: '60'
+        },
+      ],
     },
   ];
   
@@ -64,9 +224,8 @@ export class HomeScreen extends Component {
     
     const time = `${item.time}`;
     const place = `${item.place}`;
-    const temp = `${item.currentTemp}${String.fromCharCode(176)}`;
-    const icon = `${item.icon}`;
-    const iconColor = `${item.iconColor}`;
+    const temp = css.addDegreesAtEnd(item.currentTemp);
+    const {iconName, iconFont, iconColor} = item.icon;
     
     return (
       <TouchableHighlight
@@ -83,8 +242,8 @@ export class HomeScreen extends Component {
             <Text style={css.list.row_time}>{time}</Text>
             <Text style={css.list.row_place}>{place}</Text>
           </View>
-          <Icon color={iconColor} size={css.values.small_icon_size} name={icon}
-                type='ionicon'/>
+          <Icon color={iconColor} size={css.values.small_icon_size} name={iconName}
+                type={iconFont}/>
           <Text style={css.list.row_cell_temp}>{temp}</Text>
         </View>
       </TouchableHighlight>

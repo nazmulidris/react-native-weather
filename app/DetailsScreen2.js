@@ -12,8 +12,10 @@ export class DetailsScreen2 extends Component {
   
   render() {
   
-    const {currentTemp, icon, iconColor, key, place, time} =
+    const {currentTemp, icon, key, place, time} =
       this.props.navigation.state.params;
+  
+    const {iconName, iconFont, iconColor} = icon;
   
     const msg1 = `Details 2`;
     const msg2 = `${place}, ${time}, Temp:${currentTemp}`;

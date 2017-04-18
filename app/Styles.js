@@ -30,6 +30,10 @@ export const values = {
   "large_icon_size": 110,
 };
 
+export const addDegreesAtEnd = (temp) => {
+  return `${temp}${String.fromCharCode(176)}`
+};
+
 export const list = StyleSheet.create(
   {
     container: {
@@ -98,6 +102,8 @@ export const details_screen_1 = StyleSheet.create(
       height: 1,
       marginLeft: 10,
       marginRight: 10,
+      marginTop: 10,
+      marginBottom: 10,
     },
     place: {
       color: colors.weather_text_color,
