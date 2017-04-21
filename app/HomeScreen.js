@@ -52,7 +52,8 @@ export class HomeScreen extends Component {
   
     let touchableWrapperAndroid =
       <TouchableNativeFeedback
-        background={TouchableNativeFeedback.SelectableBackground()}
+        useForeground={true}
+        background={TouchableNativeFeedback.SelectableBackgroundBorderless()}
         onPress={
           () => {
             this._navigation.navigate("DetailsRoute", {...item});
