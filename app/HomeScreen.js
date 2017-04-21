@@ -1,7 +1,14 @@
 // @flow
 
 import React, {Component} from "react";
-import {FlatList, StatusBar, Text, TouchableHighlight, View} from "react-native";
+import {
+  FlatList,
+  StatusBar,
+  Text,
+  TouchableHighlight,
+  TouchableNativeFeedback,
+  View
+} from "react-native";
 import {Icon} from "react-native-elements";
 import * as css from "./Styles";
 import {listData} from "./Data";
@@ -18,8 +25,19 @@ export class HomeScreen extends Component {
     const place = `${item.place}`;
     const temp = css.addDegreesToEnd(item.currentTemp);
     const {iconName, iconFont, iconColor} = item.icon;
-    
-    return (
+  
+    let actualRowComponent =
+      <View style={css.home_screen_list.row}>
+        <View style={css.home_screen_list.row_cell_timeplace}>
+          <Text style={css.home_screen_list.row_time}>{time}</Text>
+          <Text style={css.home_screen_list.row_place}>{place}</Text>
+        </View>
+        <Icon color={iconColor} size={css.values.small_icon_size} name={iconName}
+              type={iconFont}/>
+        <Text style={css.home_screen_list.row_cell_temp}>{temp}</Text>
+      </View>;
+  
+    let touchableWrapperIos =
       <TouchableHighlight
         activeOpacity={0.5}
         underlayColor={css.colors.transparent_white}
@@ -29,17 +47,26 @@ export class HomeScreen extends Component {
           }
         }
       >
-        <View style={css.home_screen_list.row}>
-          <View style={css.home_screen_list.row_cell_timeplace}>
-            <Text style={css.home_screen_list.row_time}>{time}</Text>
-            <Text style={css.home_screen_list.row_place}>{place}</Text>
-          </View>
-          <Icon color={iconColor} size={css.values.small_icon_size} name={iconName}
-                type={iconFont}/>
-          <Text style={css.home_screen_list.row_cell_temp}>{temp}</Text>
-        </View>
-      </TouchableHighlight>
-    );
+        {actualRowComponent}
+      </TouchableHighlight>;
+  
+    let touchableWrapperAndroid =
+      <TouchableNativeFeedback
+        background={TouchableNativeFeedback.SelectableBackground()}
+        onPress={
+          () => {
+            this._navigation.navigate("DetailsRoute", {...item});
+          }
+        }
+      >
+        {actualRowComponent}
+      </TouchableNativeFeedback>;
+  
+    if (require('react-native').Platform.OS === 'ios') {
+      return touchableWrapperIos;
+    }
+    else return touchableWrapperAndroid;
+    
   };
   
   // sets up the entire screen
