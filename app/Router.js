@@ -3,8 +3,8 @@
 import React from "react";
 import {AppRegistry, ScrollView, Text, View} from "react-native";
 import {
+  DrawerItems,
   DrawerNavigator,
-  DrawerView,
   StackNavigator,
   TabNavigator
 } from "react-navigation";
@@ -66,15 +66,14 @@ const nav_stack = StackNavigator(
 // drawer ... more info https://goo.gl/2Dnmtl
 //
 
-const customComponent = (props) => (
+const customComponent = (props) =>
   <ScrollView
     style={{
       flex: 1,
       backgroundColor: css.drawer.style.backgroundColor,
     }}>
-    <DrawerView.Items {...props} />
-  </ScrollView>
-);
+    <DrawerItems {...props} />
+  </ScrollView>;
 
 const nav_drawer = DrawerNavigator(
   // route config

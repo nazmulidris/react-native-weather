@@ -11,6 +11,10 @@ export class DetailsScreen2 extends Component {
     title: `WEEKLY`,
   };
   
+  constructor(props) {
+    super(props);
+  }
+  
   renderRow({item}) {
     
     let {day, icon, key, temp} = item;

@@ -10,6 +10,10 @@ export class SettingsScreen extends Component {
     title: `App Settings`,
   };
   
+  constructor(props) {
+    super(props);
+  }
+  
   render() {
     const msg1 = `Settings Screen`;
     

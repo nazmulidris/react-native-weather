@@ -18,6 +18,10 @@ export class HomeScreen extends Component {
   // reference to navigator
   _navigation;
   
+  constructor(props) {
+    super(props);
+  }
+  
   // only renders each list item
   renderRow({item}) {
     

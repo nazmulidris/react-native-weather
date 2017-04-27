@@ -12,6 +12,10 @@ export class DetailsScreen1 extends Component {
     title: `TODAY`,
   };
   
+  constructor(props) {
+    super(props);
+  }
+  
   renderRow({item}) {
     
     let {key, time, icon, temp} = item;
