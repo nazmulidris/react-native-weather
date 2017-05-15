@@ -1,6 +1,9 @@
 // @flow
 
 /*
+ more info on flow & redux
+ - https://goo.gl/jPgimk
+ 
  more info on flow
  - https://flow.org/en/docs/types/arrays/
  - https://flow.org/en/docs/types/aliases/
