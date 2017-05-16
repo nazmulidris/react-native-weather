@@ -66,6 +66,12 @@ export type DailyForecast = {
 // objects
 //
 
+let initState: State = {
+  user: null,
+  locations: null,
+  reports: null,
+};
+
 let myUser: User = {
   isAnon: true,
   name: 'naz',

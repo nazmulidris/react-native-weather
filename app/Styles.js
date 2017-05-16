@@ -2,6 +2,7 @@
 
 import React from "react";
 import {StyleSheet} from "react-native";
+import {COLOR} from 'react-native-material-ui';
 
 export const colors = {
   "secondary": '#0686E4',
@@ -92,6 +93,19 @@ export const home_screen_list = StyleSheet.create(
       fontFamily: values.font_body,
     },
   });
+
+export const fab = {
+  // key - value pairs needed to decorate the FAB
+  icon: 'library-add', // May 16 '17 only MaterialIcons can be used in material-ui lib
+  // StyleSheet needed to style the FAB
+  stylesheet: StyleSheet.create(
+    {
+      container: {
+        backgroundColor: colors.secondary, //COLORS can be used here as well
+      },
+    }
+  ),
+};
 
 export const home_screen = StyleSheet.create(
   {

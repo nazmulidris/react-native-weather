@@ -13,6 +13,7 @@
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.3",
     "react-native-elements": "^0.10.3",
+    "react-native-material-ui": "^1.10.0",
     "react-native-vector-icons": "^4.0.1",
     "react-navigation": "1.0.0-beta.9"
   },

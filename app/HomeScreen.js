@@ -7,8 +7,14 @@ import {
   Text,
   TouchableHighlight,
   TouchableNativeFeedback,
-  View
+  View,
+  ToastAndroid,
 } from "react-native";
+import {
+  ActionButton,
+  ThemeProvider,
+  COLOR
+} from 'react-native-material-ui';
 import {Icon} from "react-native-elements";
 import * as css from "./Styles";
 import {listData} from "./Data";
@@ -29,7 +35,7 @@ export class HomeScreen extends Component {
     const place = `${item.place}`;
     const temp = css.addDegreesToEnd(item.currentTemp);
     const {iconName, iconFont, iconColor} = item.icon;
-  
+    
     let actualRowComponent =
       <View style={css.home_screen_list.row}>
         <View style={css.home_screen_list.row_cell_timeplace}>
@@ -40,7 +46,7 @@ export class HomeScreen extends Component {
               type={iconFont}/>
         <Text style={css.home_screen_list.row_cell_temp}>{temp}</Text>
       </View>;
-  
+    
     let touchableWrapperIos =
       <TouchableHighlight
         activeOpacity={0.5}
@@ -53,7 +59,7 @@ export class HomeScreen extends Component {
       >
         {actualRowComponent}
       </TouchableHighlight>;
-  
+    
     let touchableWrapperAndroid =
       <TouchableNativeFeedback
         useForeground={true}
@@ -66,7 +72,7 @@ export class HomeScreen extends Component {
       >
         {actualRowComponent}
       </TouchableNativeFeedback>;
-  
+    
     if (require('react-native').Platform.OS === 'ios') {
       return touchableWrapperIos;
     }
@@ -74,30 +80,45 @@ export class HomeScreen extends Component {
     
   };
   
+  // placeholder for when FAB is pressed
+  fabPressed = () => {
+    ToastAndroid.show('FAB Pressed!', ToastAndroid.SHORT);
+  };
+  
   // sets up the entire screen
   render() {
-  
+    
     _navigation = this.props.navigation;
     
+    const uiTheme = {
+      palette: {
+        primaryColor: COLOR.green500,
+      },
+    };
+    
     return (
-      <View style={css.home_screen.v_container}>
-        <StatusBar
-          hidden={false}
-          translucent={false}
-          animated={true}
-          barStyle={'light-content'}
-          backgroundColor={css.colors.secondary}
-        />
-  
-        <FlatList
-          style={css.home_screen_list.container}
-          data={listData}
-          renderItem={this.renderRow}
-        />
-      
-      </View>
+      <ThemeProvider uiTheme={uiTheme}>
+        <View style={css.home_screen.v_container}>
+          <StatusBar
+            hidden={false}
+            translucent={false}
+            animated={true}
+            barStyle={'light-content'}
+            backgroundColor={css.colors.secondary}
+          />
+          
+          <FlatList
+            style={css.home_screen_list.container}
+            data={listData}
+            renderItem={this.renderRow}
+          />
+          
+          <ActionButton style={css.fab.stylesheet} icon={css.fab.icon} onPress={this.fabPressed}/>
+        
+        </View>
+      </ThemeProvider>
     );
-  
+    
   }// end render()
   
 }
