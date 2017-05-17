@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import React, {Component} from "react";
 import {AppRegistry, ScrollView, Text, View} from "react-native";
 import {
   DrawerItems,
@@ -19,7 +19,7 @@ import {Icon} from "react-native-elements";
 // tabs
 //
 
-const nav_tab = TabNavigator(
+const NavTab = TabNavigator(
   // route config
   {
     DetailsRoute1: {screen: DetailsScreen1},
@@ -44,11 +44,11 @@ const titleAndIcon =
     <Text style={css.header.text}>Weather App</Text>
   </View>;
 
-const nav_stack = StackNavigator(
+const NavStack = StackNavigator(
   // route config
   {
     HomeRoute: {screen: HomeScreen}, // this is displayed first
-    DetailsRoute: {screen: nav_tab},
+    DetailsRoute: {screen: NavTab},
   },
   // navigator config
   {
@@ -75,11 +75,13 @@ const customComponent = (props) =>
     <DrawerItems {...props} />
   </ScrollView>;
 
-const nav_drawer = DrawerNavigator(
+// more info on why this variable name must begin with CAPITAL letters due to JSX syntax
+// https://goo.gl/nGRaAl
+const NavDrawer = DrawerNavigator(
   // route config
   {
     HomeRoute: {
-      screen: nav_stack,
+      screen: NavStack,
       navigationOptions: {
         drawerLabel: 'Main App',
         drawerIcon: ({tintColor}) => <Icon name="wb-sunny" color={tintColor}/>,
@@ -102,4 +104,14 @@ const nav_drawer = DrawerNavigator(
   }
 );
 
-AppRegistry.registerComponent('WeatherApp', () => nav_drawer);
+// note that JSX syntax requires the name to start with an uppercase letter!
+// https://goo.gl/nGRaAl
+class WeatherApp extends Component {
+  render() {
+    return (
+      <NavDrawer/>
+    );
+  }
+}
+
+AppRegistry.registerComponent('WeatherApp', () => WeatherApp);
