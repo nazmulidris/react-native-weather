@@ -14,6 +14,8 @@ import {DetailsScreen2} from "./DetailsScreen2";
 import {SettingsScreen} from "./SettingsScreen";
 import * as css from "./Styles";
 import {Icon} from "react-native-elements";
+import {store} from "./Redux";
+import {Provider} from "react-redux";
 
 //
 // tabs
@@ -104,12 +106,14 @@ const NavDrawer = DrawerNavigator(
   }
 );
 
-// note that JSX syntax requires the name to start with an uppercase letter!
+// note that JSX syntax requires the name to startå with an uppercase letter!
 // https://goo.gl/nGRaAl
 class WeatherApp extends Component {
   render() {
     return (
-      <NavDrawer/>
+      <Provider store={store}>
+        <NavDrawer/>
+      </Provider>
     );
   }
 }
