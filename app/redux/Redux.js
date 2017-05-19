@@ -28,9 +28,11 @@ const reducer = (state: Types.State = initState, action: Types.Action): Types.St
       return state;
     }
   }
+  // in case nothing matched, just return the old state
+  return state;
 };
 
 // todo create the middleware
 
 // finally, create the store and expose it
-export const store = createStore(reducer, {});
+export const app_store = createStore(reducer, {});

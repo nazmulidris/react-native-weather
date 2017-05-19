@@ -14,8 +14,8 @@ import {DetailsScreen2} from "./DetailsScreen2";
 import {SettingsScreen} from "./SettingsScreen";
 import * as css from "./Styles";
 import {Icon} from "react-native-elements";
-import {store} from "redux";
 import {Provider} from "react-redux";
+import {app_store} from "./redux/Redux";
 
 //
 // tabs
@@ -111,7 +111,7 @@ const NavDrawer = DrawerNavigator(
 class WeatherApp extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={app_store}>
         <NavDrawer/>
       </Provider>
     );
