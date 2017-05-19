@@ -20,6 +20,11 @@
 // types
 //
 
+export type Action = {
+  type: number,
+  payload: any,
+}
+
 export type State = {
   user: User,
   locations: LocationWatchList,

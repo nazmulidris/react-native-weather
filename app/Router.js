@@ -14,7 +14,7 @@ import {DetailsScreen2} from "./DetailsScreen2";
 import {SettingsScreen} from "./SettingsScreen";
 import * as css from "./Styles";
 import {Icon} from "react-native-elements";
-import {store} from "./Redux";
+import {store} from "redux";
 import {Provider} from "react-redux";
 
 //
