@@ -1,8 +1,8 @@
 // @flow
 
-import React, {Component} from "react";
-import {StatusBar, Text, View} from "react-native";
-import * as css from "./Styles";
+import React, {Component} from 'react';
+import {StatusBar, Text, View} from 'react-native';
+import * as css from './Styles';
 
 export class SettingsScreen extends Component {
   
@@ -26,7 +26,7 @@ export class SettingsScreen extends Component {
           barStyle={'light-content'}
           backgroundColor={css.colors.secondary}
         />
-    
+  
         <Text style={css.settings_screen.text}>{msg1}</Text>
       </View>
     );

@@ -1,21 +1,29 @@
 // @flow
 
-import React, {Component} from "react";
-import {AppRegistry, ScrollView, Text, View} from "react-native";
+import React, {Component} from 'react';
+import {AppRegistry, ScrollView, Text, View} from 'react-native';
 import {
   DrawerItems,
   DrawerNavigator,
   StackNavigator,
   TabNavigator
-} from "react-navigation";
-import {HomeScreen} from "./HomeScreen";
-import {DetailsScreen1} from "./DetailsScreen1";
-import {DetailsScreen2} from "./DetailsScreen2";
-import {SettingsScreen} from "./SettingsScreen";
-import * as css from "./Styles";
-import {Icon} from "react-native-elements";
-import {Provider} from "react-redux";
-import {app_store} from "./redux/Redux";
+} from 'react-navigation';
+import {HomeScreen} from './HomeScreen';
+import {DetailsScreen1} from './DetailsScreen1';
+import {DetailsScreen2} from './DetailsScreen2';
+import {SettingsScreen} from './SettingsScreen';
+import * as css from './Styles';
+import {Icon} from 'react-native-elements';
+import {Provider} from 'react-redux';
+import {app_store} from './state/ApplicationContext';
+
+/**
+ * This is where the navigation hierarchy for the app is setup using DrawerNavigator,
+ * StackNavigator, and TabNavigator.
+ *
+ * The Redux store is also wired into the Provider, which sits at the root of the view
+ * hierarchy.
+ */
 
 //
 // tabs
@@ -29,10 +37,10 @@ const NavTab = TabNavigator(
   },
   // navigator config
   {
-    lazyLoad: false, // render the tabs lazily
+    lazyLoad      : false, // render the tabs lazily
     tabBarPosition: 'bottom', // where are the tabs shown
-    backBehavior: 'none', // back button doesn't take you to the initial tab
-    tabBarOptions: css.tabs
+    backBehavior  : 'none', // back button doesn't take you to the initial tab
+    tabBarOptions : css.tabs,
   },
 );
 
@@ -41,15 +49,15 @@ const NavTab = TabNavigator(
 //
 
 const titleAndIcon =
-  <View style={css.header.container}>
-    <Icon name="wb-sunny" color={css.colors.text_light}/>
-    <Text style={css.header.text}>Weather App</Text>
-  </View>;
+        <View style={css.header.container}>
+          <Icon name="wb-sunny" color={css.colors.text_light}/>
+          <Text style={css.header.text}>Weather App</Text>
+        </View>;
 
 const NavStack = StackNavigator(
   // route config
   {
-    HomeRoute: {screen: HomeScreen}, // this is displayed first
+    HomeRoute   : {screen: HomeScreen}, // this is displayed first
     DetailsRoute: {screen: NavTab},
   },
   // navigator config
@@ -60,8 +68,8 @@ const NavStack = StackNavigator(
       headerTitle: titleAndIcon,
       // other styling
       ...css.header,
-    }
-  }
+    },
+  },
 );
 
 //
@@ -71,7 +79,7 @@ const NavStack = StackNavigator(
 const customComponent = (props) =>
   <ScrollView
     style={{
-      flex: 1,
+      flex           : 1,
       backgroundColor: css.drawer.style.backgroundColor,
     }}>
     <DrawerItems {...props} />
@@ -82,32 +90,36 @@ const customComponent = (props) =>
 const NavDrawer = DrawerNavigator(
   // route config
   {
-    HomeRoute: {
-      screen: NavStack,
+    HomeRoute    : {
+      screen           : NavStack,
       navigationOptions: {
         drawerLabel: 'Main App',
-        drawerIcon: ({tintColor}) => <Icon name="wb-sunny" color={tintColor}/>,
-      }
+        drawerIcon : ({tintColor}) => <Icon name="wb-sunny" color={tintColor}/>,
+      },
     },
     SettingsRoute: {
-      screen: SettingsScreen,
+      screen           : SettingsScreen,
       navigationOptions: {
         drawerLabel: 'Settings',
-        drawerIcon: ({tintColor}) => <Icon name="settings" color={tintColor}/>,
-      }
+        drawerIcon : ({tintColor}) => <Icon name="settings" color={tintColor}/>,
+      },
     },
   },
   // navigator config
   {
     contentComponent: customComponent,
-    drawerPosition: 'left',
+    drawerPosition  : 'left',
     // styling for for DrawerView.Items in contentOptions
-    contentOptions: css.drawer
-  }
+    contentOptions  : css.drawer,
+  },
 );
 
-// note that JSX syntax requires the name to startå with an uppercase letter!
-// https://goo.gl/nGRaAl
+/**
+ * Place the Provider at the root of the view hierarchy for Redux.
+ *
+ * Note that JSX syntax requires the name to start with an uppercase letter!
+ * more info - https://goo.gl/nGRaAl
+ */
 class WeatherApp extends Component {
   render() {
     return (
@@ -118,4 +130,5 @@ class WeatherApp extends Component {
   }
 }
 
+// wire the WeatherApp to the AppRegistry
 AppRegistry.registerComponent('WeatherApp', () => WeatherApp);

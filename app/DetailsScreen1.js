@@ -1,10 +1,10 @@
 // @flow
 
-import React, {Component} from "react";
-import {FlatList, Text, View} from "react-native";
-import {Icon} from "react-native-elements";
+import React, {Component} from 'react';
+import {FlatList, Text, View} from 'react-native';
+import {Icon} from 'react-native-elements';
 
-import * as css from "./Styles";
+import * as css from './Styles';
 
 export class DetailsScreen1 extends Component {
   
@@ -37,8 +37,8 @@ export class DetailsScreen1 extends Component {
   render() {
   
     const {description, currentTemp, icon, key, place, time, dailyForecast} =
-      this.props.navigation.state.params;
-  
+            this.props.navigation.state.params;
+    
     const {iconName, iconFont, iconColor} = icon;
   
     const temp = css.addDegreesToEnd(currentTemp);

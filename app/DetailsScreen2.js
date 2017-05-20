@@ -1,9 +1,9 @@
 // @flow
 
-import React, {Component} from "react";
-import {FlatList, Text, View} from "react-native";
-import * as css from "./Styles";
-import {Icon} from "react-native-elements";
+import React, {Component} from 'react';
+import {FlatList, Text, View} from 'react-native';
+import * as css from './Styles';
+import {Icon} from 'react-native-elements';
 
 export class DetailsScreen2 extends Component {
   
@@ -16,10 +16,10 @@ export class DetailsScreen2 extends Component {
   }
   
   renderRow({item}) {
-    
-    let {day, icon, key, temp} = item;
+  
+    let {day, icon, key, temp}            = item;
     const {iconName, iconFont, iconColor} = icon;
-    temp = css.addDegreesToEnd(temp);
+    temp                                  = css.addDegreesToEnd(temp);
     
     return (
       <View style={css.details_screen_2.row}>
@@ -35,8 +35,8 @@ export class DetailsScreen2 extends Component {
   render() {
   
     const {currentTemp, icon, key, place, time, weeklyForecast} =
-      this.props.navigation.state.params;
-  
+            this.props.navigation.state.params;
+    
     const {iconName, iconFont, iconColor} = icon;
   
     return (

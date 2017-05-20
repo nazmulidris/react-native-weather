@@ -72,40 +72,40 @@ export type DailyForecast = {
 //
 
 let initState: State = {
-  user: null,
+  user     : null,
   locations: null,
-  reports: null,
+  reports  : null,
 };
 
 let myUser: User = {
-  isAnon: true,
-  name: 'naz',
-  userid: '123',
+  isAnon           : true,
+  name             : 'naz',
+  userid           : '123',
   profilePictureUrl: 'http://boo',
 };
 
 let myLocations: LocationWatchList = ['12', '13', '14'];
 
 let myReports: WeatherReports =
-  [
-    {
-      location: '12',
-      current: {
-        temp: 12,
-        humidity: 80,
-        wind: 3,
-        uvindex: 5,
-        sunrise: 12,
-        sunset: 18,
-      },
-      forecast: {
-        days: [
-          {
-            day: 'mon',
-            hi: 70,
-            lo: 60,
-          }
-        ],
-      }
-    },
-  ];
+      [
+        {
+          location: '12',
+          current : {
+            temp    : 12,
+            humidity: 80,
+            wind    : 3,
+            uvindex : 5,
+            sunrise : 12,
+            sunset  : 18,
+          },
+          forecast: {
+            days: [
+              {
+                day: 'mon',
+                hi : 70,
+                lo : 60,
+              },
+            ],
+          },
+        },
+      ];

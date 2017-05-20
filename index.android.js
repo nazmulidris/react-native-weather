@@ -1,3 +1,3 @@
 // @flow
 
-import "./app/Router";
+import './app/Router';
