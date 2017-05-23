@@ -3,13 +3,28 @@
 import type * as Types from './Types';
 import * as actions from './Actions';
 
+// todo define the empty startup state by creating a const for an empty user object
+const EMPTY_USER: User     = {
+  isAnon           : true,
+  name             : 'anonymous',
+  userid           : '123',
+  profilePictureUrl: 'http://123.com/',
+};
+const INIT_STATE: AppState = {
+  user     : EMPTY_USER,
+  locations: [],
+  reports  : [],
+};
+
 /**
  * main_reducer is responsible for processing state changes for all the action names that
  * start with "set".
  *
  * more info - https://goo.gl/JdPDWJ
  */
-export const main_reducer = (state: Types.State, action: Types.Action): Types.State => {
+export const appReducer = (state: Types.AppState = INIT_STATE,
+                           action: Types.Action,
+): Types.AppState => {
   switch (action.type) {
     case actions.TYPES.set_watchlist: {
       return setWatchlist(state, action.payload);
@@ -28,20 +43,25 @@ export const main_reducer = (state: Types.State, action: Types.Action): Types.St
 /**
  * todo generate a new state given the new watchlist
  */
-function setWatchlist(state: Types.State, watchlist: LocationWatchList): Types.State {
+function setWatchlist(state: Types.AppState,
+                      watchlist: LocationWatchList,
+): Types.AppState {
   return state;
 }
 
 /**
  * todo generate a new state given the new reports
  */
-function setWeatherData(state: Types.State, reports: WeatherReports) {
+function setWeatherData(state: Types.AppState, reports: WeatherReports) {
   return state;
 }
 
 /**
  * todo generate a new state given the new user
  */
-function setUserObject(state: Types.State, user: User) {
-  return state;
+function setUserObject(state: Types.AppState, user: User) {
+  return {
+    ...state, // syntax : http://es6-features.org/#SpreadOperator
+    user, // syntax : http://es6-features.org/#PropertyShorthand
+  };
 }

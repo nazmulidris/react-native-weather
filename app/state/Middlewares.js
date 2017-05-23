@@ -12,7 +12,7 @@ import type * as Types from './Types';
  * more info (middleware)      - https://goo.gl/ZSeGji
  * more info (currying syntax) - https://goo.gl/Y2kEkq
  */
-export const main_middleware = function (store) {
+export const mainMiddleware = function (store) {
   return function (next) {
     return function (action: Types.Action) {
       

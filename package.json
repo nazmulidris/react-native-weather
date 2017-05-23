@@ -9,13 +9,14 @@
     "flow-stop": "node_modules/.bin/flow stop"
   },
   "dependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "lodash": "^4.17.4",
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.3",
     "react-native-elements": "^0.10.3",
     "react-native-material-ui": "^1.10.0",
     "react-native-vector-icons": "^4.0.1",
-    "react-navigation": "1.0.0-beta.9",
+    "react-navigation": "^1.0.0-beta.10",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0"
   },
