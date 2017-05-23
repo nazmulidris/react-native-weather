@@ -34,18 +34,6 @@ export class DetailsScreen2 extends Component {
   
   render() {
     
-    console.log(':: DetailsScreen2.this.props.navigation.state ::');
-    console.log(this.props.navigation.state);
-    
-    return (
-      <Text>{JSON.stringify(this.props.navigation.state)}</Text>
-    );
-    
-  }
-  
-  
-  render2() {
-  
     const {currentTemp, icon, key, place, time, weeklyForecast} =
             this.props.navigation.state.params;
     

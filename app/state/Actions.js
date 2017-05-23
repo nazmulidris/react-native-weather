@@ -56,12 +56,12 @@ export function set_weather_data_action(weatherreports: WeatherReports): Types.A
 }
 
 export function set_user_object_action(user: User): Types.Action {
-  debugger;
+  let retval = {};
   if (_.isNil(user)) {
-    return {
+    retval = {
       type   : TYPES.set_user_object,
       payload: {
-        isAnon           : true,
+        isAnon           : false,
         name             : Math.random().toString(36).substring(7),
         userid           : Math.random().toString(36).substring(7),
         profilePictureUrl: Math.random().toString(36).substring(7),
@@ -69,9 +69,10 @@ export function set_user_object_action(user: User): Types.Action {
     };
   }
   else {
-    return {
+    retval = {
       type   : TYPES.set_user_object,
       payload: user,
     };
   }
+  return retval;
 }

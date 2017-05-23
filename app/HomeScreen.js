@@ -13,7 +13,6 @@ import {ActionButton, COLOR, ThemeProvider} from 'react-native-material-ui';
 import {Icon} from 'react-native-elements';
 import * as css from './Styles';
 import {listData} from './Data';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actions from './state/Actions';
 
@@ -49,11 +48,11 @@ import * as actions from './state/Actions';
   (state) => {
     return {app: state.app};
   },
-  (dispatch) => {
-    return bindActionCreators(actions, dispatch);
-  },
 )
 export class HomeScreen extends Component {
+  
+  // reference to redux dispatch function
+  _dispatchFunction;
   
   // reference to navigator
   _navigation;
@@ -78,7 +77,6 @@ export class HomeScreen extends Component {
           </View>;
   
     let pressed = () => {
-      // this._navigation.navigate("DetailsRoute", {...item});
       this._navigation.navigate('DetailsRoute', {...item});
     };
     
@@ -114,9 +112,10 @@ export class HomeScreen extends Component {
    */
   render() {
   
-    const {app: app_state, set_user_object_action} = this.props;
-    
-    _navigation = this.props.navigation;
+    const {app: app_state} = this.props;
+  
+    _dispatchFunction = this.props.dispatch;
+    _navigation       = this.props.navigation;
     
     const uiTheme = {
       palette: {
@@ -128,13 +127,12 @@ export class HomeScreen extends Component {
     let debugMsg;
     try {
       debugMsg = `User: ${JSON.stringify(app_state.user).substring(0, 30)}`;
-      debugMsg += `..., Action: ${set_user_object_action.toString().substring(0, 10)}...`;
     }
     catch (e) {
       debugMsg = 'No user set in state';
     }
     console.log(":: HomeScreen.render ::");
-    console.log(this.props);
+    console.log(JSON.stringify(this.props, null, '\t'));
     // debug
     
     return (
@@ -157,7 +155,7 @@ export class HomeScreen extends Component {
           />
   
           <ActionButton style={css.fab.stylesheet} icon={css.fab.icon}
-                        onPress={this.actionButtonPressed(set_user_object_action)}/>
+                        onPress={this.actionButtonPressed}/>
         
         </View>
       </ThemeProvider>
@@ -165,12 +163,8 @@ export class HomeScreen extends Component {
     
   }// end render()
   
-  actionButtonPressed(action) {
-    return function (action) {
-      console.log(':: action button pressed, firing redux action! ::');
-      debugger;
-      action();
-    };
+  actionButtonPressed() {
+    this._dispatchFunction(actions.set_user_object_action(null));
   }
   
 }
