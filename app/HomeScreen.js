@@ -15,6 +15,7 @@ import * as css from './Styles';
 import {listData} from './Data';
 import {connect} from 'react-redux';
 import * as actions from './state/Actions';
+import {NavigationActions} from 'react-navigation';
 
 //
 // NOTE - if you don't use @connect ...
@@ -59,7 +60,7 @@ export class HomeScreen extends Component {
   
   // only renders each list item
   renderRow({item}) {
-  
+    
     const time                            = `${item.time}`;
     const place                           = `${item.place}`;
     const temp                            = css.addDegreesToEnd(item.currentTemp);
@@ -75,9 +76,19 @@ export class HomeScreen extends Component {
                   type={iconFont}/>
             <Text style={css.home_screen_list.row_cell_temp}>{temp}</Text>
           </View>;
-  
+    
     let pressed = () => {
-      this._navigation.navigate('DetailsRoute', {...item});
+      //this._navigation.navigate('DetailsRoute', {...item});
+      this._navigation.dispatch(
+        NavigationActions.navigate({
+                                     routeName: 'DetailsRoute',
+                                     params   : {...item},
+                                     action   : NavigationActions.navigate({
+                                                                             routeName: 'DetailsRoute1',
+                                                                             params   : {...item},
+                                                                           }),
+                                   }),
+      );
     };
     
     let touchableWrapperIos =
@@ -95,14 +106,14 @@ export class HomeScreen extends Component {
             onPress={pressed}>
             {actualRowComponent}
           </TouchableNativeFeedback>;
-  
+    
     if (require('react-native').Platform.OS === 'ios') {
       return touchableWrapperIos;
     }
     else {
       return touchableWrapperAndroid;
     }
-  
+    
   };
   
   /**
@@ -111,9 +122,9 @@ export class HomeScreen extends Component {
    * passed at the root using a ThemeProvider.
    */
   render() {
-  
+    
     const {app: app_state} = this.props;
-  
+    
     _dispatchFunction = this.props.dispatch;
     _navigation       = this.props.navigation;
     
@@ -122,7 +133,7 @@ export class HomeScreen extends Component {
         primaryColor: COLOR.green500,
       },
     };
-  
+    
     // DEBUG-START
     // let debugMsg;
     // try {
@@ -145,13 +156,13 @@ export class HomeScreen extends Component {
             barStyle={'light-content'}
             backgroundColor={css.colors.secondary}
           />
-  
+          
           <FlatList
             style={css.home_screen_list.container}
             data={listData}
             renderItem={this.renderRow}
           />
-  
+          
           <ActionButton style={css.fab.stylesheet} icon={css.fab.icon}
                         onPress={this.actionButtonPressed}/>
         

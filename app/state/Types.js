@@ -26,6 +26,9 @@ export type Action = {
 }
 
 export type State = {
+  nav_tab: any,
+  nav_stack: any,
+  nav_drawer: any,
   app: AppState,
 }
 

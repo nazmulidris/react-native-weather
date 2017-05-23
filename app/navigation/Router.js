@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import {AppRegistry, ScrollView, Text, View} from 'react-native';
 import {
+  addNavigationHelpers,
   DrawerItems,
   DrawerNavigator,
   StackNavigator,
@@ -14,8 +15,8 @@ import {DetailsScreen2} from '../DetailsScreen2';
 import {SettingsScreen} from '../SettingsScreen';
 import * as css from '../Styles';
 import {Icon} from 'react-native-elements';
-import {Provider} from 'react-redux';
-import {store} from '../state/Context';
+import {connect, Provider} from 'react-redux';
+import {create_store, store} from '../state/Context';
 
 /**
  * This is where the navigation hierarchy for the app is setup using DrawerNavigator,
@@ -44,6 +45,26 @@ const NavTab = TabNavigator(
   },
 );
 
+// connect this component to navigation state
+@connect(
+  (state) => {
+    return {navState: state.nav_tab};
+  },
+)
+class NavTabReduxWrapper extends Component {
+  render() {
+    const {dispatch, navState} = this.props;
+    return (
+      <NavTab
+        navigation={addNavigationHelpers({
+                                           dispatch: dispatch,
+                                           state   : navState,
+                                         })}
+      />
+    );
+  }
+}
+
 //
 // STACK
 //
@@ -58,19 +79,39 @@ const NavStack = StackNavigator(
   // route config
   {
     HomeRoute   : {screen: HomeScreen}, // this is displayed first
-    DetailsRoute: {screen: NavTab},
+    DetailsRoute: {screen: NavTabReduxWrapper},
   },
   // navigator config
   {
     //headerMode: 'none', // this removes the navigation header
     navigationOptions: {
-      // labe l text
+      // label text
       headerTitle: titleAndIcon,
       // other styling
       ...css.header,
     },
   },
 );
+
+// connect this component to navigation state
+@connect(
+  (state) => {
+    return {navState: state.nav_stack};
+  },
+)
+class NavStackReduxWrapper extends Component {
+  render() {
+    const {dispatch, navState} = this.props;
+    return (
+      <NavStack
+        navigation={addNavigationHelpers({
+                                           dispatch: dispatch,
+                                           state   : navState,
+                                         })}
+      />
+    );
+  }
+}
 
 //
 // DRAWER
@@ -96,7 +137,7 @@ const NavDrawer = DrawerNavigator(
   // route config
   {
     HomeRoute    : {
-      screen           : NavStack,
+      screen           : NavStackReduxWrapper,
       navigationOptions: {
         drawerLabel: 'Main App',
         drawerIcon : ({tintColor}) => <Icon name="wb-sunny" color={tintColor}/>,
@@ -119,6 +160,38 @@ const NavDrawer = DrawerNavigator(
   },
 );
 
+// connect this component to navigation state
+@connect(
+  (state) => {
+    return {navState: state.nav_drawer};
+  },
+)
+class NavDrawerReduxWrapper extends Component {
+  render() {
+    const {dispatch, navState} = this.props;
+    return (
+      <NavDrawer
+        navigation={addNavigationHelpers({
+                                           dispatch: dispatch,
+                                           state   : navState,
+                                         })}
+      />
+    );
+  }
+}
+
+//
+// REDUX STORE
+//
+const redux_store = create_store(NavDrawer, NavStack, NavTab);
+redux_store.subscribe(()=>{
+  console.log(redux_store.getState());
+});
+
+//
+// ROOT
+//
+
 /**
  * Place the Provider at the root of the view hierarchy for Redux.
  *
@@ -128,8 +201,8 @@ const NavDrawer = DrawerNavigator(
 class Root extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <NavDrawer/>
+      <Provider store={redux_store}>
+        <NavDrawerReduxWrapper/>
       </Provider>
     );
   }
