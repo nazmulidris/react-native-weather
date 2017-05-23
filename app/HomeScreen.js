@@ -123,17 +123,17 @@ export class HomeScreen extends Component {
       },
     };
   
-    // debug
-    let debugMsg;
-    try {
-      debugMsg = `User: ${JSON.stringify(app_state.user).substring(0, 30)}`;
-    }
-    catch (e) {
-      debugMsg = 'No user set in state';
-    }
-    console.log(":: HomeScreen.render ::");
-    console.log(JSON.stringify(this.props, null, '\t'));
-    // debug
+    // DEBUG-START
+    // let debugMsg;
+    // try {
+    //   debugMsg = `User: ${JSON.stringify(app_state.user).substring(0, 30)}`;
+    // }
+    // catch (e) {
+    //   debugMsg = 'No user set in state';
+    // }
+    // console.log(":: HomeScreen.render ::");
+    // console.log(JSON.stringify(this.props, null, '\t'));
+    // DEBUG-END
     
     return (
       <ThemeProvider uiTheme={uiTheme}>
@@ -146,8 +146,6 @@ export class HomeScreen extends Component {
             backgroundColor={css.colors.secondary}
           />
   
-          <Text>{debugMsg}</Text>
-          
           <FlatList
             style={css.home_screen_list.container}
             data={listData}

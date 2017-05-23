@@ -2,6 +2,7 @@
 
 import type * as Types from './Types';
 import * as actions from './Actions';
+import {ToastAndroid} from 'react-native';
 
 // todo define the empty startup state by creating a const for an empty user object
 const EMPTY_USER: User     = {
@@ -57,9 +58,10 @@ function setWeatherData(state: Types.AppState, reports: WeatherReports) {
 }
 
 /**
- * todo generate a new state given the new user
+ * generate a new state given the new user
  */
 function setUserObject(state: Types.AppState, user: User) {
+  ToastAndroid.show("USER OBJECT SET", ToastAndroid.SHORT);
   return {
     ...state, // syntax : http://es6-features.org/#SpreadOperator
     user, // syntax : http://es6-features.org/#PropertyShorthand
