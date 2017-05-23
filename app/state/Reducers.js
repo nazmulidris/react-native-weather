@@ -27,12 +27,15 @@ export const appReducer = (state: Types.AppState = INIT_STATE,
 ): Types.AppState => {
   switch (action.type) {
     case actions.TYPES.set_watchlist: {
+      debugger;
       return setWatchlist(state, action.payload);
     }
     case actions.TYPES.set_weather_data: {
+      debugger;
       return setWeatherData(state, action.payload);
     }
     case actions.TYPES.set_user_object: {
+      debugger;
       return setUserObject(state, action.payload);
     }
   }

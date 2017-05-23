@@ -16,9 +16,44 @@ import {listData} from './Data';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actions from './state/Actions';
-import {NavigationActions} from 'react-navigation';
 
-class HomeScreen extends Component {
+//
+// NOTE - if you don't use @connect ...
+//
+//   /*
+//    * mapStateToProps & mapDispatchToProps more info:
+//    * http://www.sohamkamani.com/blog/2017/03/31/react-redux-connect-explained/
+//    * https://goo.gl/VNQAOZ
+//    */
+//   const mapStateToProps = (state) => {
+//     return {app: state.app};
+//   };
+//
+//   const mapDispatchToProps = (dispatch) => {
+//     return bindActionCreators(actions, dispatch);
+//   };
+//
+//   // exports HomeScreen as the connected component
+//   // more info - http://redux.js.org/docs/basics/UsageWithReact.html
+//   export const ConnectedHomeScreen =
+//                  connect(mapStateToProps, mapDispatchToProps)
+//                  (HomeScreen);
+//
+
+/**
+ * This React component is bound to the Redux store. Redux Provider saves the redux store
+ * in the Component.Context, which is then available to any React Component that is
+ * wired up to Redux using @connect.
+ */
+@connect(
+  (state) => {
+    return {app: state.app};
+  },
+  (dispatch) => {
+    return bindActionCreators(actions, dispatch);
+  },
+)
+export class HomeScreen extends Component {
   
   // reference to navigator
   _navigation;
@@ -41,17 +76,17 @@ class HomeScreen extends Component {
                   type={iconFont}/>
             <Text style={css.home_screen_list.row_cell_temp}>{temp}</Text>
           </View>;
+  
+    let pressed = () => {
+      // this._navigation.navigate("DetailsRoute", {...item});
+      this._navigation.navigate('DetailsRoute', {...item});
+    };
     
     let touchableWrapperIos =
           <TouchableHighlight
             activeOpacity={0.5}
             underlayColor={css.colors.transparent_white}
-            onPress={
-              () => {
-                this._navigation.navigate("DetailsRoute", {...item});
-              }
-            }
-          >
+            onPress={pressed}>
             {actualRowComponent}
           </TouchableHighlight>;
     
@@ -59,17 +94,7 @@ class HomeScreen extends Component {
           <TouchableNativeFeedback
             useForeground={true}
             background={TouchableNativeFeedback.SelectableBackgroundBorderless()}
-            onPress={
-              () => {
-                //this._navigation.navigate("DetailsRoute", {...item});
-                const action = NavigationActions.navigate({
-                                                            routeName: 'DetailsRoute',
-                                                            params   : {...item},
-                                                          });
-                this._navigation.dispatch(action);
-              }
-            }
-          >
+            onPress={pressed}>
             {actualRowComponent}
           </TouchableNativeFeedback>;
   
@@ -90,14 +115,6 @@ class HomeScreen extends Component {
   render() {
   
     const {app: app_state, set_user_object_action} = this.props;
-  
-    let debug_user_msg;
-    try {
-      debug_user_msg = `User: ${JSON.stringify(app_state.user)}`;
-    }
-    catch (e) {
-      debug_user_msg = 'No user set in state';
-    }
     
     _navigation = this.props.navigation;
     
@@ -106,6 +123,19 @@ class HomeScreen extends Component {
         primaryColor: COLOR.green500,
       },
     };
+  
+    // debug
+    let debugMsg;
+    try {
+      debugMsg = `User: ${JSON.stringify(app_state.user).substring(0, 30)}`;
+      debugMsg += `..., Action: ${set_user_object_action.toString().substring(0, 10)}...`;
+    }
+    catch (e) {
+      debugMsg = 'No user set in state';
+    }
+    console.log(":: HomeScreen.render ::");
+    console.log(this.props);
+    // debug
     
     return (
       <ThemeProvider uiTheme={uiTheme}>
@@ -118,7 +148,7 @@ class HomeScreen extends Component {
             backgroundColor={css.colors.secondary}
           />
   
-          <Text>{debug_user_msg}</Text>
+          <Text>{debugMsg}</Text>
           
           <FlatList
             style={css.home_screen_list.container}
@@ -127,7 +157,7 @@ class HomeScreen extends Component {
           />
   
           <ActionButton style={css.fab.stylesheet} icon={css.fab.icon}
-                        onPress={set_user_object_action}/>
+                        onPress={this.actionButtonPressed(set_user_object_action)}/>
         
         </View>
       </ThemeProvider>
@@ -135,23 +165,12 @@ class HomeScreen extends Component {
     
   }// end render()
   
+  actionButtonPressed(action) {
+    return function (action) {
+      console.log(':: action button pressed, firing redux action! ::');
+      debugger;
+      action();
+    };
+  }
+  
 }
-
-/*
- * mapStateToProps & mapDispatchToProps more info:
- * http://www.sohamkamani.com/blog/2017/03/31/react-redux-connect-explained/
- * http://stackoverflow.com/questions/32646920/whats-the-at-symbol-in-the-redux-connect-decorator
- */
-const mapStateToProps = (state) => {
-  return state;
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actions, dispatch);
-};
-
-// exports HomeScreen as the connected component
-// more info - http://redux.js.org/docs/basics/UsageWithReact.html
-export const ConnectedHomeScreen =
-               connect(mapStateToProps, mapDispatchToProps)
-               (HomeScreen);
