@@ -76,8 +76,13 @@ export class HomeScreen extends Component {
             <Text style={css.home_screen_list.row_cell_temp}>{temp}</Text>
           </View>;
   
+    // fixed animation bug that didn't allow ripples to be drawn on UI component
+    // https://johnresig.com/blog/how-javascript-timers-work/
+    // https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers
     let pressed = () => {
-      this._navigation.navigate('DetailsRoute', {...item});
+      setTimeout(() => {
+        this._navigation.navigate('DetailsRoute', {...item});
+      }, 100);
     };
     
     let touchableWrapperIos =
