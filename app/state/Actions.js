@@ -58,6 +58,7 @@ export function set_weather_data_action(weatherreports: WeatherReports): Types.A
 export function set_user_object_action(user: User): Types.Action {
   let retval = {};
   if (_.isNil(user)) {
+    // this is for debug purposes only!
     retval = {
       type   : TYPES.set_user_object,
       payload: {

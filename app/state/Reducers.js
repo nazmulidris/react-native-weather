@@ -3,6 +3,7 @@
 import type * as Types from './Types';
 import * as actions from './Actions';
 import {ToastAndroid} from 'react-native';
+import * as _ from 'lodash';
 
 // todo define the empty startup state by creating a const for an empty user object
 const EMPTY_USER: User     = {
@@ -42,28 +43,44 @@ export const appReducer = (state: Types.AppState = INIT_STATE,
 };
 
 /**
- * todo generate a new state given the new watchlist
+ * generate a new state given the new watchlist
  */
 function setWatchlist(state: Types.AppState,
-                      watchlist: LocationWatchList,
+                      locations: LocationWatchList,
 ): Types.AppState {
-  return state;
+  ToastAndroid.show("REDUCER: SET WATCH LIST", ToastAndroid.SHORT);
+  return {
+    ...state,
+    locations: _.cloneDeep(locations),
+  };
 }
 
 /**
- * todo generate a new state given the new reports
+ * Generate a new state given the new reports.
+ *
+ * The weather data has to be deep cloned since FlatList is a PureComponent and only
+ * does a shallow compare ... meaning that if a deep clone isn't done then it won't
+ * register that the data has changed and the UI won't update!
+ *
+ * More info:
+ * https://lodash.com/docs/4.17.4#cloneDeep
+ * https://stackoverflow.com/questions/43397803/how-to-re-render-flatlist/43398395
  */
 function setWeatherData(state: Types.AppState, reports: WeatherReports) {
-  return state;
+  ToastAndroid.show("REDUCER: SET WEATHER DATA", ToastAndroid.SHORT);
+  return {
+    ...state,
+    reports: _.cloneDeep(reports),
+  };
 }
 
 /**
  * generate a new state given the new user
  */
 function setUserObject(state: Types.AppState, user: User) {
-  ToastAndroid.show("USER OBJECT SET", ToastAndroid.SHORT);
+  ToastAndroid.show("REDUCER: SET USER OBJECT", ToastAndroid.SHORT);
   return {
     ...state, // syntax : http://es6-features.org/#SpreadOperator
-    user, // syntax : http://es6-features.org/#PropertyShorthand
+    user: _.cloneDeep(user), // syntax : http://es6-features.org/#PropertyShorthand
   };
 }

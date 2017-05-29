@@ -15,6 +15,7 @@ import * as css from './Styles';
 import {listData} from './Data';
 import {connect} from 'react-redux';
 import * as actions from './state/Actions';
+import {store} from './state/Context';
 
 //
 // NOTE - if you don't use @connect ...
@@ -117,8 +118,8 @@ export class HomeScreen extends Component {
    */
   render() {
   
-    const {app: app_state} = this.props;
-  
+    const {app} = this.props;
+    
     _dispatchFunction = this.props.dispatch;
     _navigation       = this.props.navigation;
     
@@ -131,15 +132,17 @@ export class HomeScreen extends Component {
     // DEBUG-START
     // let debugMsg;
     // try {
-    //   debugMsg = `User: ${JSON.stringify(app_state.user).substring(0, 30)}`;
+    //   debugMsg = `#Reports ${app.reports.length}`;
+    //   console.log(":: HomeScreen.render ::");
+    //   // console.log(JSON.stringify(app.reports, null, '\t'));
+    //   console.log(app);
     // }
     // catch (e) {
-    //   debugMsg = 'No user set in state';
+    //   debugMsg = 'No data set in state';
     // }
-    // console.log(":: HomeScreen.render ::");
-    // console.log(JSON.stringify(this.props, null, '\t'));
     // DEBUG-END
-    
+  
+  
     return (
       <ThemeProvider uiTheme={uiTheme}>
         <View style={css.home_screen.v_container}>
@@ -151,9 +154,11 @@ export class HomeScreen extends Component {
             backgroundColor={css.colors.secondary}
           />
   
+          {/*<Text>{debugMsg}</Text>*/}
+          
           <FlatList
             style={css.home_screen_list.container}
-            data={listData}
+            data={app.reports}
             renderItem={this.renderRow}
           />
   
@@ -167,7 +172,30 @@ export class HomeScreen extends Component {
   }// end render()
   
   actionButtonPressed() {
-    this._dispatchFunction(actions.set_user_object_action(null));
+  
+    // This is just mocked up so that it feeds the mock data to the app one row at a time
+    try {
+    
+      let app                 = store.getState().app;
+      let reports             = app.reports;
+      let numOfCurrentReports = reports.length;
+      if (numOfCurrentReports === listData.length) {
+        // noop
+      }
+      else {
+        // add another item to the stack
+        let report = listData[numOfCurrentReports];
+        reports.push(report);
+        this._dispatchFunction(actions.set_weather_data_action(reports));
+      }
+    
+    }
+    catch (e) {
+      console.log(e);
+    }
+  
+    // This was just to test the set user object action
+    //this._dispatchFunction(actions.set_user_object_action(null));
   }
   
-}
+}// end class HomeScreen
