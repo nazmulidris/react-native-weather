@@ -173,29 +173,46 @@ export class HomeScreen extends Component {
   
   actionButtonPressed() {
   
-    // This is just mocked up so that it feeds the mock data to the app one row at a time
-    try {
-    
-      let app                 = store.getState().app;
-      let reports             = app.reports;
-      let numOfCurrentReports = reports.length;
-      if (numOfCurrentReports === listData.length) {
-        // noop
-      }
-      else {
-        // add another item to the stack
-        let report = listData[numOfCurrentReports];
-        reports.push(report);
-        this._dispatchFunction(actions.set_weather_data_action(reports));
-      }
-    
-    }
-    catch (e) {
-      console.log(e);
-    }
+    let path: number = 1;
   
-    // This was just to test the set user object action
-    //this._dispatchFunction(actions.set_user_object_action(null));
+    if (path === 0) {
+    
+      // This was just to test the set user object action
+      this._dispatchFunction(actions.set_user_object_action(null));
+    
+    }
+    else if (path === 1) {
+    
+      // This is just mocked up so that it feeds the mock data to the app one row at a
+      // time
+      try {
+      
+        let app                 = store.getState().app;
+        let reports             = app.reports;
+        let numOfCurrentReports = reports.length;
+        if (numOfCurrentReports === listData.length) {
+          // noop
+        }
+        else {
+          // add another item to the stack
+          let report = listData[numOfCurrentReports];
+          reports.push(report);
+          this._dispatchFunction(actions.set_weather_data_action(reports));
+        }
+      
+      }
+      catch (e) {
+        console.log(e);
+      }
+    
+    }
+    else if (path === 2) {
+    
+      // Interact with the cloud to get fake weather data into the app ... instead of
+      // directly setting weather data (as done above)
+    
+    }
+    
   }
   
 }// end class HomeScreen
