@@ -5,6 +5,19 @@
 - [RN Elements UI toolkit](https://github.com/react-native-training/react-native-elements#components-included)
 - [RN Vector Icons](https://github.com/oblador/react-native-vector-icons#bundled-icon-sets)
 
-# Tasks that are pending
+# Docs
 - [Doc - App arch, redux, backend](https://goo.gl/QfbSHV)
 - [Doc - Notes on RN, backend](https://goo.gl/Be1WVh)
+
+# Next steps
+
+- Research firebase functions vs. node.js server & make the fake list
+  data remote
+- Swap the fake data with real data for the hardcoded locations
+- Add functionality in the app to do a place search and generate a WGRS
+  value that will be added to the watchlist of location
+
+# Related projects
+
+[Firebase Functions backend test](https://github.com/nazmulidris/firebase-functions-react-native-weather/)
+[Node and Express backend test](https://github.com/r3bl-alliance/endpoint_learning)
