@@ -1,3 +1,11 @@
+# Project Goals
+
+- Build a weather app that showcases react navigation and redux state machine.
+- Create a backend to serve JSON weather data to app.
+    - Backend choice 1 - Firebase functions
+    - Backend choice 2 - Node.js and Express on Heroku
+- Integrate with Firebase for persistence and offline storage needs.
+
 # Open links
 
 - [R Color Picker](https://casesandberg.github.io/react-color/)
